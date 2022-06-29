@@ -18,7 +18,7 @@ public class ChangeColor : MonoBehaviour
     /// <summary>
     /// Current color in display.
     /// </summary>
-    private Colors currentColor;
+    [SerializeField] static public Colors currentColor { get; private set; }
 
     /// <summary>
     /// Enum that displays colors of text.
@@ -58,7 +58,7 @@ public class ChangeColor : MonoBehaviour
         else if (random == Colors.GREEN) color = Color.green;
         else if (random == Colors.BLUE) color = Color.blue;
 
-        this.currentColor = random; // Запнить текущий цвет.
+        currentColor = random; // Запнить текущий цвет.
 
         _text.color = color;// Установить цвет текста.
     }
