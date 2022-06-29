@@ -28,23 +28,27 @@ public class ChangeColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.ChangeTextColor(); // Изменить цвет текста.
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void ChangeTextColor()
+    {
         _text = GetComponent<TMP_Text>(); // Получить объект TextMeshPro.
 
-        // Сгенерировать случайный цвет.
-        int random = Random.Range(0, 3);
+        int random = Random.Range(0, 4);// Сгенерировать случайный цвет.
         Color color = new Color();
         if (random == 0) color = Color.red;
         else if (random == 1) { color = Color.yellow; }
         else if (random == 2) color = Color.green;
         else if (random == 3) color = Color.blue;
 
-        // Установить цвет текста.
-        _text.color = color;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        _text.color = color;// Установить цвет текста.
 
     }
 }
