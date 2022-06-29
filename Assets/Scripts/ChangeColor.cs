@@ -37,6 +37,9 @@ public class ChangeColor : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Method for changing TextMeshPro color in window or in buttons.
+    /// </summary>
     public void ChangeTextColor()
     {
         _text = GetComponent<TMP_Text>(); // Получить объект TextMeshPro.
