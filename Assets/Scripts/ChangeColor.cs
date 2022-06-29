@@ -29,6 +29,7 @@ public class ChangeColor : MonoBehaviour
     void Start()
     {
         this.ChangeTextColor(); // Изменить цвет текста.
+        this.ChangeText();
     }
 
     // Update is called once per frame
@@ -52,6 +53,18 @@ public class ChangeColor : MonoBehaviour
         else if (random == 3) color = Color.blue;
 
         _text.color = color;// Установить цвет текста.
+    }
 
+    /// <summary>
+    /// Method to set the color name in the TextMeshPro field.
+    /// </summary>
+    public void ChangeText()
+    {
+        _text = GetComponent<TMP_Text> (); // Получть объект TextMeshPro.
+        int random = Random.Range(0,4); // Сгененрировать случайное название.
+        if (random == 0) _text.text = "Красный"; // Установить название согласно сгенерированному значению.
+        else if (random == 1) _text.text = "Жёлтый";
+        else if (random == 2) _text.text = "Зелёный";
+        else if (random == 3) _text.text = "Синий";
     }
 }
