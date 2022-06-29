@@ -4,10 +4,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class for changeing color for window text.
+/// </summary>
 public class ChangeColor : MonoBehaviour
 {
+    /// <summary>
+    ///  Text mesh pro object from interface.
+    /// </summary>
     private TMP_Text _text;
-    private enum Colors
+
+    /// <summary>
+    /// Enum that displays colors of text.
+    /// </summary>
+    private enum Colors 
     {
         RED, // Обозначает красный цвет.
         YELLOW, // Обозначает синий цвет.
@@ -18,14 +28,17 @@ public class ChangeColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _text = GetComponent<TMP_Text>();
-        int random = Random.Range(0, 3); // Сгенерировать случайный цвет.
+        _text = GetComponent<TMP_Text>(); // Получить объект TextMeshPro.
+
+        // Сгенерировать случайный цвет.
+        int random = Random.Range(0, 3);
         Color color = new Color();
         if (random == 0) color = Color.red;
         else if (random == 1) { color = Color.yellow; }
         else if (random == 2) color = Color.green;
         else if (random == 3) color = Color.blue;
-        //extMeshPro text = new TextMeshPro();
+
+        // Установить цвет текста.
         _text.color = color;
     }
 
