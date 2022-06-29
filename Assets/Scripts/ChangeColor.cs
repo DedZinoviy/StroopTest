@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 
 /// <summary>
@@ -15,9 +16,14 @@ public class ChangeColor : MonoBehaviour
     private TMP_Text _text;
 
     /// <summary>
+    /// Current color in display.
+    /// </summary>
+    private Colors currentColor;
+
+    /// <summary>
     /// Enum that displays colors of text.
     /// </summary>
-    private enum Colors 
+    public enum Colors 
     {
         RED, // Обозначает красный цвет.
         YELLOW, // Обозначает синий цвет.
@@ -45,12 +51,14 @@ public class ChangeColor : MonoBehaviour
     {
         _text = GetComponent<TMP_Text>(); // Получить объект TextMeshPro.
 
-        int random = Random.Range(0, 4);// Сгенерировать случайный цвет.
+        Colors random = (Colors)Enum.ToObject(typeof(Colors), UnityEngine.Random.Range(0, 4));// Сгенерировать случайный цвет.
         Color color = new Color();
-        if (random == 0) color = Color.red;
-        else if (random == 1) { color = Color.yellow; }
-        else if (random == 2) color = Color.green;
-        else if (random == 3) color = Color.blue;
+        if (random == Colors.RED) color = Color.red;
+        else if (random == Colors.YELLOW) { color = Color.yellow; }
+        else if (random == Colors.GREEN) color = Color.green;
+        else if (random == Colors.BLUE) color = Color.blue;
+
+        this.currentColor = random; // Запнить текущий цвет.
 
         _text.color = color;// Установить цвет текста.
     }
@@ -61,7 +69,7 @@ public class ChangeColor : MonoBehaviour
     public void ChangeText()
     {
         _text = GetComponent<TMP_Text> (); // Получть объект TextMeshPro.
-        int random = Random.Range(0,4); // Сгененрировать случайное название.
+        int random = UnityEngine.Random.Range(0,4); // Сгененрировать случайное название.
         if (random == 0) _text.text = "Красный"; // Установить название согласно сгенерированному значению.
         else if (random == 1) _text.text = "Жёлтый";
         else if (random == 2) _text.text = "Зелёный";
