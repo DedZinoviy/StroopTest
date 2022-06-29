@@ -69,10 +69,10 @@ public class ChangeColor : MonoBehaviour
     public void ChangeText()
     {
         _text = GetComponent<TMP_Text> (); // Получть объект TextMeshPro.
-        int random = UnityEngine.Random.Range(0,4); // Сгененрировать случайное название.
-        if (random == 0) _text.text = "Красный"; // Установить название согласно сгенерированному значению.
-        else if (random == 1) _text.text = "Жёлтый";
-        else if (random == 2) _text.text = "Зелёный";
-        else if (random == 3) _text.text = "Синий";
+        Colors random = (Colors)Enum.ToObject(typeof(Colors), UnityEngine.Random.Range(0, 4)); // Сгененрировать случайное название.
+        if (random == Colors.RED) _text.text = "Красный"; // Установить название согласно сгенерированному значению.
+        else if (random == Colors.YELLOW) _text.text = "Жёлтый";
+        else if (random == Colors.GREEN) _text.text = "Зелёный";
+        else if (random == Colors.BLUE) _text.text = "Синий";
     }
 }
