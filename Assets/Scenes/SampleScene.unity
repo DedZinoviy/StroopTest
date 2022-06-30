@@ -935,6 +935,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 717108632}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: isCorrectAnswer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 584473784}
+          m_ObjectArgumentAssemblyTypeName: Btn, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1335179053}
         m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
         m_MethodName: ChangeTextColor
@@ -1009,6 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930f9ffcd40d9ea408923f46fc81308b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Color: 0
   TmpText: {fileID: 1410626521}
 --- !u!1 &717108627
 GameObject:
@@ -1127,6 +1140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EtalonColor: {fileID: 1335179053}
+  text: {fileID: 717108631}
+  ScoreEdit: {fileID: 445884400}
 --- !u!1 &720041734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,6 +1457,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 717108632}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: isCorrectAnswer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1013940626}
+          m_ObjectArgumentAssemblyTypeName: Btn, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1335179053}
         m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
         m_MethodName: ChangeText
@@ -1457,18 +1484,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1335179053}
         m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
         m_MethodName: ChangeTextColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 717108631}
-        m_TargetAssemblyTypeName: SetButtonText, Assembly-CSharp
-        m_MethodName: SetText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1528,6 +1543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930f9ffcd40d9ea408923f46fc81308b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Color: 0
   TmpText: {fileID: 1031793447}
 --- !u!1 &1021342386
 GameObject:
@@ -1951,6 +1967,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 717108632}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: isCorrectAnswer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1302884683}
+          m_ObjectArgumentAssemblyTypeName: Btn, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1335179053}
         m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
         m_MethodName: ChangeTextColor
@@ -2025,6 +2053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930f9ffcd40d9ea408923f46fc81308b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Color: 0
   TmpText: {fileID: 545751334}
 --- !u!1 &1335179048
 GameObject:
@@ -2394,6 +2423,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 717108632}
+        m_TargetAssemblyTypeName: Controller, Assembly-CSharp
+        m_MethodName: isCorrectAnswer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1732253910}
+          m_ObjectArgumentAssemblyTypeName: Btn, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1335179053}
         m_TargetAssemblyTypeName: ChangeColor, Assembly-CSharp
         m_MethodName: ChangeTextColor
@@ -2468,4 +2509,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930f9ffcd40d9ea408923f46fc81308b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Color: 0
   TmpText: {fileID: 1021342388}

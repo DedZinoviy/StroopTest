@@ -5,7 +5,7 @@ using TMPro;
 
 public class Btn : MonoBehaviour
 {
-    private DisplayColor.Colors Color;
+    public DisplayColor.Colors Color;
 
     [SerializeField]
     private TMP_Text TmpText;
