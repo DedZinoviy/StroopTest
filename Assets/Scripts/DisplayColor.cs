@@ -50,8 +50,8 @@ public class DisplayColor : MonoBehaviour
     public void ChangeTextColor()
     {
         _text = GetComponent<TMP_Text>(); // Получить объект TextMeshPro.
-
-        Colors random = (Colors)Enum.ToObject(typeof(Colors), UnityEngine.Random.Range(0, 4));// Сгенерировать случайный цвет.
+        var rand = new System.Random(DateTime.Now.Millisecond);
+        Colors random = (Colors)Enum.ToObject(typeof(Colors), rand.Next(0, 4));// Сгенерировать случайный цвет.
         Color color = new Color();
         if (random == Colors.RED) color = Color.red;
         else if (random == Colors.YELLOW) { color = Color.yellow; }
@@ -69,7 +69,8 @@ public class DisplayColor : MonoBehaviour
     public void ChangeText()
     {
         _text = GetComponent<TMP_Text> (); // Получть объект TextMeshPro.
-        Colors random = (Colors)Enum.ToObject(typeof(Colors), UnityEngine.Random.Range(0, 4)); // Сгененрировать случайное название.
+        var rand = new System.Random(DateTime.Now.Millisecond + 1);
+        Colors random = (Colors)Enum.ToObject(typeof(Colors), rand.Next(0, 4)); // Сгененрировать случайное название.
         if (random == Colors.RED) _text.text = "Красный"; // Установить название согласно сгенерированному значению.
         else if (random == Colors.YELLOW) _text.text = "Жёлтый";
         else if (random == Colors.GREEN) _text.text = "Зелёный";

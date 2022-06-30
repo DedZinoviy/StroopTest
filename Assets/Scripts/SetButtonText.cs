@@ -26,9 +26,10 @@ public class SetButtonText : MonoBehaviour
 
     public void SetText()
     {
+        var rand = new System.Random(DateTime.Now.Millisecond); // Сгенерировать случайное значение.
         int random = -1;
         HashSet<DisplayColor.Colors> execlude = new HashSet<DisplayColor.Colors>();
-        random = UnityEngine.Random.Range(0, 3); // Выбрать случайную кнопку для установки цвета.
+        random = rand.Next(0, 4); // Выбрать случайную кнопку для установки цвета.
         DisplayColor.Colors color = curColor.currentColor; // Получить установленный в окне цвет.
         buttons[random].SetColor(color); // Установть цвет в кнопку.
         execlude.Add(color); // Добавить цвет в список использованных цветов.
@@ -39,7 +40,6 @@ public class SetButtonText : MonoBehaviour
         {
             // Создать список цветов, которые можно использовать.
             List<int> range = Enumerable.Range(0, 4).Where(j => !execlude.Contains((DisplayColor.Colors)j)).ToList();
-            var rand = new System.Random(); // Сгенерировать случайное значение.
             int index = rand.Next(range.Count());
             DisplayColor.Colors newColor = (DisplayColor.Colors)range[index]; // Сгененрировать случайный цвет.
             execlude.Add(newColor); //Добавить цвет в список использованных.
