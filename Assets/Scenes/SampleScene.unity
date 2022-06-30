@@ -260,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: 625}
+  m_AnchoredPosition: {x: 230, y: 625}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &171147598
@@ -1157,6 +1157,7 @@ MonoBehaviour:
   EtalonColor: {fileID: 1335179053}
   text: {fileID: 717108631}
   ScoreEdit: {fileID: 445884400}
+  TimeEdit: {fileID: 171147598}
 --- !u!1 &720041734
 GameObject:
   m_ObjectHideFlags: 0

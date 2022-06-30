@@ -2,25 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Controller : MonoBehaviour
 {
     [SerializeField] private DisplayColor EtalonColor;
     [SerializeField] private SetButtonText text;
     [SerializeField] private TMP_Text ScoreEdit;
-    //[SerializeField] private List<Btn> buttons;
+    [SerializeField] private TMP_Text TimeEdit;
+    private double Seconds;
     private int Score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         Score = 0;
+        Seconds = 20;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Seconds >= 0)
+        {
+            Seconds -= Time.deltaTime;
+            TimeEdit.text = "Время: " + Math.Round(Seconds, 1);
+        }
+
     }
 
     public void isCorrectAnswer(Btn button)
@@ -29,7 +37,11 @@ public class Controller : MonoBehaviour
         {
             Score++;
         }
-        ScoreEdit.text = "����: " + Score;
+        else
+        {
+            Seconds -= 0.5;
+        }
+        ScoreEdit.text = "Счёт: " + Score;
         text.SetText();
     }
 }
