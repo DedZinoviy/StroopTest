@@ -8,7 +8,6 @@ using TMPro;
 
 public class SetButtonText : MonoBehaviour
 {
-    private HashSet<DisplayColor.Colors> execlude = new HashSet<DisplayColor.Colors>();
     [SerializeField] private DisplayColor curColor;
     [SerializeField] private List<Btn> buttons;
 
@@ -28,7 +27,7 @@ public class SetButtonText : MonoBehaviour
     public void SetText()
     {
         int random = -1;
-
+        HashSet<DisplayColor.Colors> execlude = new HashSet<DisplayColor.Colors>();
         random = UnityEngine.Random.Range(0, 3); // Выбрать случайную кнопку для установки цвета.
         DisplayColor.Colors color = curColor.currentColor; // Получить установленный в окне цвет.
         buttons[random].SetColor(color); // Установть цвет в кнопку.
