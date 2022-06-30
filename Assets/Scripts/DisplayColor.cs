@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /// <summary>
 /// Class for changeing color for window text.
 /// </summary>
-public class ChangeColor : MonoBehaviour
+public class DisplayColor : MonoBehaviour
 {
     /// <summary>
     ///  Text mesh pro object from interface.
@@ -18,7 +18,7 @@ public class ChangeColor : MonoBehaviour
     /// <summary>
     /// Current color in display.
     /// </summary>
-    [SerializeField] static public Colors currentColor { get; private set; }
+    [SerializeField] public Colors currentColor { get; set; }
 
     /// <summary>
     /// Enum that displays colors of text.
@@ -32,7 +32,7 @@ public class ChangeColor : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         this.ChangeTextColor(); // Изменить цвет текста.
         this.ChangeText();
