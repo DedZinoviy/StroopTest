@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Class for describing color buttons in app.
+/// </summary>
 public class Btn : MonoBehaviour
 {
+    /// <summary>
+    /// The color that the button is responsible for.
+    /// </summary>
     public DisplayColor.Colors Color;
 
+    /// <summary>
+    /// TextMeshPro text to related button.
+    /// </summary>
     [SerializeField]
     private TMP_Text TmpText;
 
@@ -21,6 +30,10 @@ public class Btn : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// The method of setting the color for which the button should be responsible.
+    /// </summary>
+    /// <param name="color">Related color</param>
     public void SetColor(DisplayColor.Colors color)
     {
         Color = color; // Установить цвет, за который отвечает кнопка.
@@ -31,6 +44,6 @@ public class Btn : MonoBehaviour
         else if (color == DisplayColor.Colors.GREEN) text = "Зелёный";
         else if (color == DisplayColor.Colors.BLUE) text = "Синий";
 
-        TmpText.text = text;
+        TmpText.text = text; // Присвоить кнопке текст с названием.
     }
 }

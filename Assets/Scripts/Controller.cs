@@ -30,7 +30,7 @@ public class Controller : MonoBehaviour
             Seconds -= Time.deltaTime;
             TimeEdit.text = "Время: " + Math.Round(Seconds, 1);
             double percent = Seconds / prevSec;
-            TimeBar.ChangeTimeBar((float)percent);
+            TimeBar.ChangeBarSize((float)percent);
         }
 
     }

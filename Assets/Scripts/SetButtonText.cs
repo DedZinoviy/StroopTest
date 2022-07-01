@@ -6,9 +6,19 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 
+/// <summary>
+/// Script for setting color button's text.
+/// </summary>
 public class SetButtonText : MonoBehaviour
 {
+    /// <summary>
+    /// Current window text color.
+    /// </summary>
     [SerializeField] private DisplayColor curColor;
+
+    /// <summary>
+    /// List of color buttons.
+    /// </summary>
     [SerializeField] private List<Btn> buttons;
 
 
@@ -24,6 +34,9 @@ public class SetButtonText : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Method for setting color buttons text.
+    /// </summary>
     public void SetText()
     {
         var rand = new System.Random(DateTime.Now.Millisecond); // —генерировать случайное значение.
