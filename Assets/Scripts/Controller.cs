@@ -31,6 +31,7 @@ public class Controller : MonoBehaviour
             TimeEdit.text = "Время: " + Math.Round(Seconds, 1);
             double percent = Seconds / prevSec;
             TimeBar.ChangeBarSize((float)percent);
+            //TimeBar.ChangeBarColor((float)percent);
         }
 
     }
