@@ -12,6 +12,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private TMP_Text TimeEdit;
     [SerializeField] private Bar TimeBar;
     private SceneChanger Change = new SceneChanger();
+    private PlayerPrefs save = new PlayerPrefs();
     private double Seconds;
     private double OriginalSec;
     private int Score = 0;
@@ -39,6 +40,11 @@ public class Controller : MonoBehaviour
         }
         else
         {
+            if (this.Score > save.LoadScore())
+            {
+                save.HighestScore = this.Score;
+                save.SaveScore();
+            }
             Change.ChangeScene("MainMenu");
         }
 
