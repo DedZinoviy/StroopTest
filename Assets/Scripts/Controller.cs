@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private TMP_Text ScoreEdit;
     [SerializeField] private TMP_Text TimeEdit;
     [SerializeField] private Bar TimeBar;
+    private SceneChanger Change = new SceneChanger();
     private double Seconds;
     private double OriginalSec;
     private int Score = 0;
@@ -26,7 +27,7 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Seconds >= 0)
+        if (Seconds > 0)
         {
             double prevSec = Seconds;
             Seconds -= Time.deltaTime;
@@ -35,6 +36,10 @@ public class Controller : MonoBehaviour
             double colorPerc = Seconds / OriginalSec;
             TimeBar.ChangeBarSize((float)percent);
             TimeBar.ChangeBarColor((float)colorPerc);
+        }
+        else
+        {
+            Change.ChangeScene("MainMenu");
         }
 
     }

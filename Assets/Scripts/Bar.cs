@@ -17,8 +17,6 @@ public class Bar : MonoBehaviour
     /// </summary>
     private Vector2 originSize;
 
-    public GameObject obj;
-
     // Start is called before the first frame update
     void Start()
     {
