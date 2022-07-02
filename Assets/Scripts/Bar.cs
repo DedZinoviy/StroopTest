@@ -50,12 +50,12 @@ public class Bar : MonoBehaviour
         if (percent > 0.5)
         {
             percent = percent / 2;
-            sprite.color = Color.Lerp(Color.green, Color.yellow, 1 - percent);
+            sprite.color = Color.Lerp(Color.green, new Color((float)0.9,1,0,1), 1 - percent);
         }
         else
         {
             percent = percent * 2;
-            sprite.color = Color.Lerp(Color.yellow, Color.red, 1 - percent);
+            sprite.color = Color.Lerp(new Color ((float)0.8,1,0,1), Color.red, 1 - percent);
         }
     }
 }
