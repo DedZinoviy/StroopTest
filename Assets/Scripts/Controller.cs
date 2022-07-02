@@ -12,6 +12,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private TMP_Text TimeEdit;
     [SerializeField] private Bar TimeBar;
     private double Seconds;
+    private double OriginalSec;
     private int Score = 0;
 
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class Controller : MonoBehaviour
     {
         Score = 0;
         Seconds = 20;
+        OriginalSec = Seconds;
     }
 
     // Update is called once per frame
@@ -30,8 +32,9 @@ public class Controller : MonoBehaviour
             Seconds -= Time.deltaTime;
             TimeEdit.text = "Время: " + Math.Round(Seconds, 1);
             double percent = Seconds / prevSec;
+            double colorPerc = Seconds / OriginalSec;
             TimeBar.ChangeBarSize((float)percent);
-            //TimeBar.ChangeBarColor((float)percent);
+            TimeBar.ChangeBarColor((float)colorPerc);
         }
 
     }

@@ -17,8 +17,6 @@ public class Bar : MonoBehaviour
     /// </summary>
     private Vector2 originSize;
 
-    [SerializeField]private Color color;
-
     public GameObject obj;
 
     // Start is called before the first frame update
@@ -26,7 +24,6 @@ public class Bar : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>(); // Установить объект шкалы при запуске.
         originSize = sprite.sprite.rect.size; // Узнать изначальный размер шкалы.
-        color = sprite.color;
     }
 
     // Update is called once per frame
@@ -44,15 +41,21 @@ public class Bar : MonoBehaviour
         var originX = originSize.x; // Получить изначальную ширину.
         var destinationX = originX * percent; // Получить требуемую ширину.
         var ratio = destinationX / originX; // Посчитать отношение требуемого размера к исходному.
-        ChangeBarColor(ratio);
         var scale = transform.localScale; // Получить текущий масштаб.
         transform.localScale = new Vector3(scale.x * ratio, scale.y, scale.z); //Изменить масштаб.
-       // ChangeBarColor(percent);
     }
 
     public void ChangeBarColor(float percent)
     {
-        if (color.r <= 1) { color.r = 1 - percent; color.g = percent;}
-        sprite.color = new Color(color.r,color.g,color.b);
+        if (percent > 0.5)
+        {
+            percent = percent / 2;
+            sprite.color = Color.Lerp(Color.green, Color.yellow, 1 - percent);
+        }
+        else
+        {
+            percent = percent * 2;
+            sprite.color = Color.Lerp(Color.yellow, Color.red, 1 - percent);
+        }
     }
 }
