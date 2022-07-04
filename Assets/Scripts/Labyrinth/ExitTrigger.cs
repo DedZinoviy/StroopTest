@@ -12,7 +12,7 @@ public class ExitTrigger : MonoBehaviour
 
     private void TriggerAction()
     {
-        ShowPanel();
+        Exit();
     }
 
     private void ShowPanel()
@@ -22,5 +22,11 @@ public class ExitTrigger : MonoBehaviour
         {
             messagePanel.SetActive(true);
         }
+    }
+
+    private void Exit()
+    {
+        SceneChanger changer = FindObjectOfType<SceneChanger>();
+        changer.NextScene();
     }
 }

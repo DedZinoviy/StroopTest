@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     ScoreCounter scoreCounter;
 
+    [SerializeField]
+    SceneChanger changer;
+
     public int complexityLevel;
 
     private Color[] colors = 
@@ -66,4 +69,8 @@ public class GameController : MonoBehaviour
         scoreCounter.SetScoreBarFill(currentColor);
 
     }
+
+    public void Win() => changer.NextScene();
+
+    public void Lose() => changer.ToMenu();
 }

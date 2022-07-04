@@ -1177,6 +1177,7 @@ MonoBehaviour:
   ScoreEdit: {fileID: 445884400}
   TimeEdit: {fileID: 171147598}
   TimeBar: {fileID: 1876564500}
+  Change: {fileID: 223498004}
 --- !u!1 &720041734
 GameObject:
   m_ObjectHideFlags: 0

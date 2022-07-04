@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StroopTest.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Labyrinth.unity
+    guid: 65999be85eeeeea48a1828f65bf6dcd6
+  - enabled: 1
+    path: Assets/Scenes/FallingFruits.unity
+    guid: c9c622d052955cb48bb909b73c302f83
   m_configObjects: {}

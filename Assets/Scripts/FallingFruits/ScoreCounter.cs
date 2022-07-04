@@ -56,9 +56,9 @@ public class ScoreCounter : MonoBehaviour
             controller.ChangeColor();
         }
         else if (currentFruitCount <= 0)
-            Debug.Log("Victory!");
+            controller.Win();
         else if (currentFruitCount > desiredFruitCount)
-            Debug.Log("Game Over");
+            controller.Lose();
 
         fill.transform.localScale = new Vector3(currentFruitCount / (float)desiredFruitCount, 1, 1);
     }

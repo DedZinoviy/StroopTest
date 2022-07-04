@@ -11,7 +11,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private TMP_Text ScoreEdit;
     [SerializeField] private TMP_Text TimeEdit;
     [SerializeField] private Bar TimeBar;
-    private SceneChanger Change = new SceneChanger();
+    [SerializeField] private SceneChanger Change;
     private PlayerPrefs save = new PlayerPrefs();
     private double Seconds;
     private double OriginalSec;
@@ -45,7 +45,7 @@ public class Controller : MonoBehaviour
                 save.HighestScore = this.Score;
                 save.SaveScore();
             }
-            Change.ChangeScene("MainMenu");
+            Change.ToMenu();
         }
 
     }
@@ -55,6 +55,7 @@ public class Controller : MonoBehaviour
         if (EtalonColor.currentColor == button.Color)
         {
             Score++;
+            Win();
         }
         else
         {
@@ -62,6 +63,14 @@ public class Controller : MonoBehaviour
         }
         ScoreEdit.text = "Счёт: " + Score;
         text.SetText();
+    }
+
+    private void Win()
+    {
+        if (this.Score >= 2)
+        {
+            Change.NextScene();
+        }
     }
 
 
