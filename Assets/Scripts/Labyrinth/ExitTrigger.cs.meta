@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 9a9d926684d24c74ea0e8d6ddb3ca685
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - player: {instanceID: 0}
+  - messagePanel: {fileID: 397109658518346156, guid: 46d8d54caabdb1a4ebb03eeefba0ae06, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
