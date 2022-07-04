@@ -1,2 +1,3 @@
-# StroopTest
- 
+# Unity cognitive skills development game project. 
+# 
+#
