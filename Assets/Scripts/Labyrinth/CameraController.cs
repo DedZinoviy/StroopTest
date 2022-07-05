@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
     private void FixedUpdate()
     {
         if (transform.localPosition != new Vector3(0, 0, transform.localPosition.z))
-            transform.localPosition = new Vector3(0 * Time.fixedDeltaTime, 0 * Time.fixedDeltaTime, transform.localPosition.z);
+            transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0, 0, transform.localPosition.z), Time.fixedDeltaTime); ;
     }
 
 

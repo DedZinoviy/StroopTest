@@ -21,6 +21,6 @@ public class PlayerController : MonoBehaviour
     }
     private void MovePlayer (Vector2 direction)
     {
-        rigidBody.velocity = transform.TransformDirection(direction * speed * Time.deltaTime); //Перемещение игрока
+        rigidBody.velocity = transform.TransformDirection(direction * speed * Time.fixedDeltaTime); //Перемещение игрока
     }
 }
