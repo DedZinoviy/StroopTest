@@ -10,6 +10,9 @@ public class SceneChanger : MonoBehaviour
     [SerializeField]
     private PlayerPrefs playerPrefs;
 
+    [SerializeField]
+    private Canvas startPanel;
+
     private List<string> scenesSequence;
 
     private System.Random random;
@@ -27,30 +30,44 @@ public class SceneChanger : MonoBehaviour
 
     }
 
+    public void StartGame()
+    {
+        Time.timeScale = 1.0f;
+        startPanel.gameObject.SetActive(false);
+    }
+
     public void NextScene()
     {
+        Time.timeScale = 0f;
+
         if (scenesSequence.Count <= 0)
             GenerateScenesSequence();
 
         string nextScene = scenesSequence[0];
         scenesSequence.RemoveAt(0);
         playerPrefs.SetScenes(scenesSequence);
-        ChangeScene(nextScene);
+        StartCoroutine(ChangeScene(nextScene));
     }
 
     public void ToMenu()
     {
         playerPrefs.ClearScenes();
-        ChangeScene("MainMenu");
+        StartCoroutine(ChangeScene("MainMenu"));
     }
 
     /// <summary>
     /// Changes scenes into apllication.
     /// </summary>
     /// <param name="sceneName"></param>
-    private void ChangeScene(string sceneName)
+    private IEnumerator ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 
     /// <summary>
