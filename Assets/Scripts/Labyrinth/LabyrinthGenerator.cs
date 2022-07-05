@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ExitDirection
-{ //Направление выхода
+public enum Direction
+{ //Направление стены
     None,
     Left,
     Right,
@@ -23,7 +23,9 @@ public class LabyrinthCell
 
     public int DystanceStart; //Расстояние до точки старта
 
-    public ExitDirection exitDirection = ExitDirection.None; //Направление выхода в ячейкей
+    public Direction exitDirection = Direction.None; //Направление выхода в ячейкей
+
+    public Direction trapDirection = Direction.None; //Направление ловушки
 }
 public class LabyrinthGenerator
 {
@@ -150,12 +152,12 @@ public class LabyrinthGenerator
 
         // Отметить соответствующую стену
         if (farCell.X == 0)
-            farCell.exitDirection = ExitDirection.Left;
+            farCell.exitDirection = Direction.Left;
         else if (farCell.X == Width - 1)
-            farCell.exitDirection = ExitDirection.Right;
+            farCell.exitDirection = Direction.Right;
         else if (farCell.Y == 0)
-            farCell.exitDirection = ExitDirection.Bottom;
+            farCell.exitDirection = Direction.Bottom;
         else if (farCell.Y == Height - 1)
-            farCell.exitDirection = ExitDirection.Upper;
+            farCell.exitDirection = Direction.Upper;
     }
 }

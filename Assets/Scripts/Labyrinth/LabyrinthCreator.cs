@@ -8,6 +8,7 @@ public class LabyrinthCreator : MonoBehaviour
     [SerializeField] private int Width = 5; //Ширина лабиринта
     [SerializeField] private int Height = 5; //Высота лабиринта
     [SerializeField] private Camera Camera;
+    [SerializeField] private int CountTraps = 3;
     private float sizeX; //Размер ячейки по X
     private float sizeY; //Размер ячейки по Y
 
@@ -24,6 +25,8 @@ public class LabyrinthCreator : MonoBehaviour
         GameObject Cells = new GameObject("Cells"); //Объект для всех ячеек
         LabyrinthGenerator generator = new LabyrinthGenerator(Width, Height); //Генератор лабиринта 
         LabyrinthCell[,] labyrinth = generator.GenerateLabyrinth(); //Генерация лабиринта
+        TrapGenerator trapGenerator = new TrapGenerator();
+        labyrinth = trapGenerator.GenerateTrapWalls(labyrinth, CountTraps);
 
         //Отображение лабиринта на сцене
         for (int x = 0; x < Width; x++)
@@ -35,8 +38,10 @@ public class LabyrinthCreator : MonoBehaviour
                 Cell cell = curObject.GetComponent<Cell>();
                 LabyrinthCell curCell = labyrinth[x, y];
                 cell.SetWallsActive(curCell.LeftWall, curCell.RightWall, curCell.UpperWall, curCell.BottomWall); //Изменить видимость стен в ячейке
-                if (curCell.exitDirection != ExitDirection.None)
-                    cell.SetExitWall(curCell.exitDirection);
+                if (curCell.exitDirection != Direction.None)
+                    cell.SetExitWall(curCell.exitDirection); //Установить выход
+                if (curCell.trapDirection != Direction.None)
+                    cell.SetTrapWall(curCell.trapDirection); //Установить ловушку
             }
         }
 

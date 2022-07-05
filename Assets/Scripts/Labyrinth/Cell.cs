@@ -15,23 +15,23 @@ public class Cell : MonoBehaviour
         BottomWall.SetActive(BottomActive);
     }
 
-    public void SetExitWall(ExitDirection exitDirection)
+    public void SetExitWall(Direction exitDirection)
     {
         GameObject curWall = null; //Стена
         switch (exitDirection)
         {
-            case ExitDirection.None:
+            case Direction.None:
                 break;
-            case ExitDirection.Left:
+            case Direction.Left:
                 curWall = LeftWall;
                 break;
-            case ExitDirection.Right:
+            case Direction.Right:
                 curWall = RightWall;
                 break;
-            case ExitDirection.Upper:
+            case Direction.Upper:
                 curWall = UpperWall;
                 break;
-            case ExitDirection.Bottom:
+            case Direction.Bottom:
                 curWall = BottomWall;
                 break;
         }
@@ -47,5 +47,36 @@ public class Cell : MonoBehaviour
         }
         else
             return;
+    }
+
+    public void SetTrapWall(Direction trapDirection)
+    {
+        GameObject curWall = null;
+        switch (trapDirection)
+        {
+            case Direction.None:
+                break;
+            case Direction.Left:
+                curWall = LeftWall;
+                break;
+            case Direction.Right:
+                curWall = RightWall;
+                break;
+            case Direction.Upper:
+                curWall = UpperWall;
+                break;
+            case Direction.Bottom:
+                curWall = BottomWall;
+                break;
+        }
+
+        if (curWall != null)
+        {
+            curWall.tag = "trap";
+            curWall.SetActive(true);
+            curWall.GetComponent<LineRenderer>().startColor = new Color(79f/256, 31f/256, 31f/256); //Установить цвет
+            curWall.GetComponent<LineRenderer>().endColor = new Color(79f / 256, 31f / 256, 31f / 256); //Установить цвет
+            curWall.GetComponent<EdgeCollider2D>().isTrigger = true; //Сделать триггером
+        }
     }
 }
