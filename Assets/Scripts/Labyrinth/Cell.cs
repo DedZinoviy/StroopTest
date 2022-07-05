@@ -77,6 +77,8 @@ public class Cell : MonoBehaviour
             curWall.GetComponent<LineRenderer>().startColor = new Color(79f/256, 31f/256, 31f/256); //Установить цвет
             curWall.GetComponent<LineRenderer>().endColor = new Color(79f / 256, 31f / 256, 31f / 256); //Установить цвет
             curWall.GetComponent<EdgeCollider2D>().isTrigger = true; //Сделать триггером
+            curWall.AddComponent<TrapTrigger>(); //Добавление обработчика триггера
+            curWall.GetComponent<TrapTrigger>().player = GameObject.FindGameObjectWithTag("Player"); //Передача параметра обработчику
         }
     }
 }
