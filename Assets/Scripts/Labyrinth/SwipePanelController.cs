@@ -7,12 +7,25 @@ public class SwipePanelController : MonoBehaviour, IBeginDragHandler, IDragHandl
     [SerializeField] private Sprite[] Arrows = new Sprite[4]; //Стрелки
     ArrowDirection arrowDirection; //Направление стрелки
     private bool isShown = false;
+    private Image timeBar; //Временная шкала
+    [SerializeField] private float time = 1.0f;
+    private float timeLeft;
     private enum ArrowDirection
     {
         Up,
         Down,
         Left,
         Right
+    }
+
+    private void Start()
+    {
+        timeBar = transform.Find("Panel").Find("TimeBar").gameObject.GetComponent<Image>(); //Получить изображение временной шкалы
+    }
+
+    private void Update()
+    {
+        TimeBarChange();
     }
     public void InstantiateSwipePanel()
     {
@@ -23,6 +36,7 @@ public class SwipePanelController : MonoBehaviour, IBeginDragHandler, IDragHandl
             arrowDirection = (ArrowDirection)Random.Range(0, 4); //Направление
             image.sprite = SelectPicture(arrowDirection); //Изменить изображение
             isShown = true;
+            ResetTime(); //Восстановить время
         }
     }
 
@@ -88,21 +102,38 @@ public class SwipePanelController : MonoBehaviour, IBeginDragHandler, IDragHandl
             SuccessConfirm(); //Действие в случае правильного свайпа
         else
             FailConfirm(); //Действие в случае неправильного свайпа
-        HideSwipePanel(); //Убрать панель
     }
     private void FailConfirm()
     {
         Debug.Log("Fail");
+        HideSwipePanel(); //Убрать панель
     }
 
     private void SuccessConfirm()
     {
         Debug.Log("Success");
+        HideSwipePanel(); //Убрать панель
     }
 
     private void HideSwipePanel()
     {
         gameObject.SetActive(false); //Отключить панель
         isShown = false;
+    }
+
+    private void TimeBarChange()
+    {
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+            timeBar.fillAmount = timeLeft / time;
+        }
+        else
+            FailConfirm();
+    }
+
+    private void ResetTime()
+    {
+        timeLeft = time;
     }
 }
