@@ -53,15 +53,15 @@ public class GameController : MonoBehaviour
 
     public void ChangeColor()
     {
-        Fruit[] currentFruits = FindObjectsOfType<Fruit>();
+        /*Fruit[] currentFruits = FindObjectsOfType<Fruit>();
         
         List<Color> currentColors = new();
         foreach (Fruit fruit in currentFruits) 
         { 
             currentColors.Add(fruit.color); 
-        }
+        }*/
 
-        Color[] allowedColors = Array.FindAll(colors, x => !currentColors.Contains(x));
+        Color[] allowedColors = Array.FindAll(colors, x => x != currentColor);
 
         System.Random random = new System.Random();
         currentColor = allowedColors[random.Next(0, allowedColors.Length)];

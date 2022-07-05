@@ -22,13 +22,15 @@ public class ScoreCounter : MonoBehaviour
     private int desiredFruitCount;
     private int currentFruitCount;
     private int currentCountIndex;
+    private int currentCount;
 
     private void Start()
     {
         FruitCounts = GenerateFruitCounts();
 
         currentCountIndex = 0;
-        desiredFruitCount = FruitCounts[currentCountIndex];
+        currentCount = FruitCounts[currentCountIndex];
+        desiredFruitCount = FruitCounts.Sum();
         currentFruitCount = desiredFruitCount;
     }
 
@@ -47,12 +49,12 @@ public class ScoreCounter : MonoBehaviour
     private void ChangeScore(int delta)
     {
         currentFruitCount += delta;
+        currentCount += delta;
 
-        if (currentFruitCount == 0 && currentCountIndex < FruitCounts.Length - 1)
+        if (currentCount == 0 && currentCountIndex < FruitCounts.Length - 1)
         {
             currentCountIndex++;
-            desiredFruitCount = FruitCounts[currentCountIndex];
-            currentFruitCount = desiredFruitCount;
+            currentCount = FruitCounts[currentCountIndex];
             controller.ChangeColor();
         }
         else if (currentFruitCount <= 0)
@@ -75,9 +77,9 @@ public class ScoreCounter : MonoBehaviour
     private int[] GenerateFruitCounts()
     {
         System.Random random = new(DateTime.Now.Millisecond);
-        int defaultCount = 4;
+        int defaultCount = 2;
         
-        int[] fruitsCount = new int[controller.complexityLevel + 1];
+        int[] fruitsCount = new int[2 * controller.complexityLevel + 1];
         Array.Fill(fruitsCount, defaultCount);
         int shuffleAmount = fruitsCount.Length / 2 * 2; 
 

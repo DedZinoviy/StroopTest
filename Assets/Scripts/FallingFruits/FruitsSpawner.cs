@@ -15,7 +15,7 @@ public class FruitsSpawner : MonoBehaviour
     private int[] circleIndexes = new int[5];
     private int currentIndex = 5;
 
-    private float time = 0.8f;
+    private float time = 0.5f;
 
     private float[] xPosotions = { -3.5f, 3.5f };
     private int[] yPositionRange = { -1, 2 };
