@@ -46,6 +46,8 @@ public class ScoreCounter : MonoBehaviour
 
     public void SubPoint() => ChangeScore(-1);
 
+    public void LosePoints() => ChangeScore(desiredFruitCount);
+
     private void ChangeScore(int delta)
     {
         currentFruitCount += delta;
@@ -83,7 +85,7 @@ public class ScoreCounter : MonoBehaviour
         Array.Fill(fruitsCount, defaultCount);
         int shuffleAmount = fruitsCount.Length / 2 * 2; 
 
-        for (int i = 0; i < shuffleAmount; i += 2)
+        for (int i = 1; i < shuffleAmount; i += 2)
         {
             int delta = random.Next(-defaultCount / 2, defaultCount / 2 + 1);
             fruitsCount[i] -= delta;

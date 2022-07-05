@@ -731,6 +731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreCounter: {fileID: 463891267}
   changer: {fileID: 1031807358}
+  missZone: {fileID: 815212277}
   complexityLevel: 2
 --- !u!114 &1108850526
 MonoBehaviour:

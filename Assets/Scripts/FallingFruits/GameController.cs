@@ -7,10 +7,13 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     [SerializeField]
-    ScoreCounter scoreCounter;
+    private ScoreCounter scoreCounter;
 
     [SerializeField]
-    SceneChanger changer;
+    private SceneChanger changer;
+
+    [SerializeField]
+    private MissZone missZone;
 
     public int complexityLevel;
 
@@ -35,11 +38,10 @@ public class GameController : MonoBehaviour
         if (color == currentColor)
         {
             scoreCounter.SubPoint();
-            Debug.Log("Right");
         }
         else
         {
-            scoreCounter.AddPoint();
+            scoreCounter.LosePoints();
         }
     }
 
@@ -67,7 +69,7 @@ public class GameController : MonoBehaviour
         currentColor = allowedColors[random.Next(0, allowedColors.Length)];
 
         scoreCounter.SetScoreBarFill(currentColor);
-
+        missZone.ActivateSafeTime();
     }
 
     public void Win() => changer.NextScene();
