@@ -40,7 +40,7 @@ public class Cell : MonoBehaviour
         {
             curWall.name = "Exit Wall"; //Переименовать стену выхода
             curWall.GetComponent<LineRenderer>().enabled = false; //Отключить видимость
-            curWall.GetComponent<EdgeCollider2D>().isTrigger = true; //Сделать триггером
+            curWall.GetComponent<BoxCollider2D>().isTrigger = true; //Сделать триггером
             curWall.AddComponent<ExitTrigger>(); //Добавление обработчика триггера
             curWall.GetComponent<ExitTrigger>().player = GameObject.FindGameObjectWithTag("Player"); //Передача параметра обработчику
             curWall.AddComponent<ExitPointer>(); //Добавление указателя на выход
@@ -76,7 +76,7 @@ public class Cell : MonoBehaviour
             curWall.SetActive(true);
             curWall.GetComponent<LineRenderer>().startColor = new Color(79f/256, 31f/256, 31f/256); //Установить цвет
             curWall.GetComponent<LineRenderer>().endColor = new Color(79f / 256, 31f / 256, 31f / 256); //Установить цвет
-            curWall.GetComponent<EdgeCollider2D>().isTrigger = true; //Сделать триггером
+            curWall.GetComponent<BoxCollider2D>().isTrigger = true; //Сделать триггером
             curWall.AddComponent<TrapTrigger>(); //Добавление обработчика триггера
             curWall.GetComponent<TrapTrigger>().player = GameObject.FindGameObjectWithTag("Player"); //Передача параметра обработчику
         }

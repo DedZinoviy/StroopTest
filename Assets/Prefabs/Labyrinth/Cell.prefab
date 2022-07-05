@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1919974678247403583}
   - component: {fileID: 1919974678247403577}
-  - component: {fileID: 1919974678247403582}
+  - component: {fileID: 5632564574538213943}
   m_Layer: 0
   m_Name: Left Wall
   m_TagString: Untagged
@@ -132,8 +132,8 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!68 &1919974678247403582
-EdgeCollider2D:
+--- !u!61 &5632564574538213943
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,15 +145,19 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00080984086, y: 0.49952722}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.11769518, y: 0.8907018}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: 0}
-  - {x: 0, y: 1}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1919974678653100609
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1919974678653100608}
   - component: {fileID: 1919974678653100610}
-  - component: {fileID: 1919974678653100611}
+  - component: {fileID: 3138900910473366698}
   m_Layer: 0
   m_Name: Bottom Wall
   m_TagString: Untagged
@@ -286,8 +290,8 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!68 &1919974678653100611
-EdgeCollider2D:
+--- !u!61 &3138900910473366698
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -299,15 +303,19 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5002066, y: -0.00010130182}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.88934374, y: 0.113501884}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 0, y: 0}
-  - {x: 1, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1919974679005813126
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1919974679005813121}
   - component: {fileID: 1919974679005813123}
-  - component: {fileID: 1919974679005813120}
+  - component: {fileID: 2411651915541147562}
   m_Layer: 0
   m_Name: Right Wall
   m_TagString: Untagged
@@ -440,8 +448,8 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!68 &1919974679005813120
-EdgeCollider2D:
+--- !u!61 &2411651915541147562
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -453,15 +461,19 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.0002329, y: 0.49952722}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.118665814, y: 0.8907018}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 1, y: 1}
-  - {x: 1, y: 0}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &1919974679109210757
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1919974679595243097}
   - component: {fileID: 1919974679595243099}
-  - component: {fileID: 1919974679595243096}
+  - component: {fileID: 535692035112159548}
   m_Layer: 0
   m_Name: Upper Wall
   m_TagString: Untagged
@@ -647,8 +659,8 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!68 &1919974679595243096
-EdgeCollider2D:
+--- !u!61 &535692035112159548
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -660,15 +672,19 @@ EdgeCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5002066, y: 0.9994919}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.88934374, y: 0.11795914}
   m_EdgeRadius: 0
-  m_Points:
-  - {x: 1, y: 1}
-  - {x: 0, y: 1}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1001 &4769993715207223101
 PrefabInstance:
   m_ObjectHideFlags: 0
