@@ -2,58 +2,94 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class for working with player preferences and other stored information.
+/// </summary>
 public class PlayerPrefs : MonoBehaviour
 {
+    /// <summary>
+    /// The highest game score.
+    /// </summary>
     public int HighestScore { get; set; }
 
+    /// <summary>
+    /// Default constructor.
+    /// </summary>
     public PlayerPrefs()
     {
         HighestScore = 0;
     }
 
+    /// <summary>
+    /// Saves score in log.
+    /// </summary>
     public void SaveScore()
     {
-        UnityEngine.PlayerPrefs.SetInt("SavedInteger", HighestScore);
+        UnityEngine.PlayerPrefs.SetInt("SavedInteger", HighestScore); // Сохранить информацию о счёте.
     }
 
+    /// <summary>
+    /// Loads the score from log.
+    /// </summary>
+    /// <returns>Contained score.</returns>
     public int LoadScore()
     {
-        if(UnityEngine.PlayerPrefs.HasKey("SavedInteger"))
+        if (UnityEngine.PlayerPrefs.HasKey("SavedInteger")) // Получить информацию о счёте, если таковая существует.
         {
             this.HighestScore = UnityEngine.PlayerPrefs.GetInt("SavedInteger");
         }
-        return this.HighestScore;
+        return this.HighestScore; // Вернуть полученную информацию.
     }
 
+    /// <summary>
+    /// Clears all info in log.
+    /// </summary>
     public void Clear()
     {
-        UnityEngine.PlayerPrefs.DeleteAll();
-        this.HighestScore = 0;
+        UnityEngine.PlayerPrefs.DeleteAll(); // Стереть всю информацию в логе.
+        this.HighestScore = 0; // Стереть всю информацию о результате в модели.
     }
 
+    /// <summary>
+    /// Returns scenes from the log as a scene container.
+    /// </summary>
+    /// <returns>List of scenes.</returns>
     public List<string> GetScenes()
     {
-        string scenesString = UnityEngine.PlayerPrefs.GetString("Scenes");
+        string scenesString = UnityEngine.PlayerPrefs.GetString("Scenes"); //Получить строку с названием сцен.
 
-        if (scenesString.Length <= 0)
+        if (scenesString.Length <= 0) // Если строка пустая, то вернуть пустую коллекцию.
             return new List<string>();
-        else
-            return JsonUtility.FromJson<ScenesContainer>(scenesString).scenes;
+        else // Иначе...
+            return JsonUtility.FromJson<ScenesContainer>(scenesString).scenes; // Вернуть коллекцию сцен.
     }
 
+    /// <summary>
+    /// Puts the scenes contained in the scene container in the log.
+    /// </summary>
+    /// <param name="scenes">List of scenes' names.</param>
     public void SetScenes(List<string> scenes)
     {
-        ScenesContainer container = new ScenesContainer();
+        ScenesContainer container = new ScenesContainer(); //Сформировать контейнер сцен.
         container.scenes = scenes;
-        string str = JsonUtility.ToJson(container);
-        UnityEngine.PlayerPrefs.SetString("Scenes", str);
+        string str = JsonUtility.ToJson(container); // Преобразовать контейнер в строку JSON.
+        UnityEngine.PlayerPrefs.SetString("Scenes", str); // Сохранить полученную строку JSON в логе.
     }
 
+    /// <summary>
+    /// Deletes all scenes' names in log.
+    /// </summary>
     public void ClearScenes()
     {
-        UnityEngine.PlayerPrefs.DeleteKey("Scenes");
+        if (UnityEngine.PlayerPrefs.HasKey("Scenes")) // Удалить информацию о сценах, если таковая существует.
+        {
+            UnityEngine.PlayerPrefs.DeleteKey("Scenes");
+        }
     }
 
+    /// <summary>
+    /// Class representing container of scenes.
+    /// </summary>
     class ScenesContainer
     {
         public List<string> scenes;
