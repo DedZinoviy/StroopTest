@@ -14,16 +14,19 @@ public class Controller : MonoBehaviour
     [SerializeField] private SceneChanger Change;
     [SerializeField] private int QuestionCount;
     private PlayerPrefs save = new PlayerPrefs();
-    private double Seconds;
+    [SerializeField]private double Seconds;
     private double OriginalSec;
+    [SerializeField]private double QuestionTime;
+    private double OriginalQuestionTime;
     private int Score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         Score = 0;
-        Seconds = 20;
+        //Seconds = 20;
         OriginalSec = Seconds;
+        OriginalQuestionTime =  QuestionTime;
     }
 
     // Update is called once per frame
@@ -31,15 +34,10 @@ public class Controller : MonoBehaviour
     {
         if (Seconds > 0) // Если время не вышло...
         {
-            double prevSec = Seconds;
+            
             Seconds -= Time.deltaTime; // Уменьшить оставшееся время.
             TimeEdit.text = "Время: " + Math.Round(Seconds, 1); // Вывести оставшееся время на экран.
-            
-            // Изменить длину и цвет временной шкалы, согласно времени.
-            double percent = Seconds / prevSec;
-            double colorPerc = Seconds / OriginalSec;
-            TimeBar.ChangeBarSize((float)percent);
-            TimeBar.ChangeBarColor((float)colorPerc);
+            this.TimePerQuestion(); // Изменить время одного вопроса.    
         }
         else // Иначе...
         {
@@ -70,6 +68,9 @@ public class Controller : MonoBehaviour
         }
         ScoreEdit.text = "Счёт: " + Score; // Отобразить счёт на экране.
         text.SetText(); // Перемешать кнопки.
+        this.SetOriginalQuestionTime();
+        TimeBar.ReturnToOriginScale();
+        TimeBar.ChangeBarColor(1);
     }
 
     /// <summary>
@@ -83,5 +84,30 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private void TimePerQuestion()
+    {
+        if (QuestionTime > 0) // Если время на вопрос не вышло...
+        {
+            double prevSec = QuestionTime;
+            QuestionTime -= Time.deltaTime; // Уменьшить время на вопрос.
+            double percent = QuestionTime / prevSec;
+            double colorPerc = QuestionTime / OriginalQuestionTime;
+            TimeBar.ChangeBarSize((float)percent);
+            TimeBar.ChangeBarColor((float)colorPerc);
+        }
+        else
+        {
+            text.SetText();
+            EtalonColor.ChangeText();
+            EtalonColor.ChangeTextColor();
+            QuestionTime = OriginalQuestionTime;
+            TimeBar.ReturnToOriginScale();
+            TimeBar.ChangeBarColor(1);
+        }
+    }
 
+    private void SetOriginalQuestionTime()
+    {
+        QuestionTime = OriginalQuestionTime;
+    }
 }

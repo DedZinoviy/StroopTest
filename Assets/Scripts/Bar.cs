@@ -17,11 +17,14 @@ public class Bar : MonoBehaviour
     /// </summary>
     private Vector2 originSize;
 
+    private Vector3 originScale;
+
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>(); // Установить объект шкалы при запуске.
         originSize = sprite.sprite.rect.size; // Узнать изначальный размер шкалы.
+        originScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -55,5 +58,10 @@ public class Bar : MonoBehaviour
             percent = percent * 2;
             sprite.color = Color.Lerp(new Color ((float)0.8,1,0,1), Color.red, 1 - percent);
         }
+    }
+
+    public void ReturnToOriginScale()
+    {
+        transform.localScale = originScale;
     }
 }
