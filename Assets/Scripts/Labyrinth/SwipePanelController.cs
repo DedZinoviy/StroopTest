@@ -8,8 +8,9 @@ public class SwipePanelController : MonoBehaviour, IBeginDragHandler, IDragHandl
     ArrowDirection arrowDirection; //Направление стрелки
     private bool isShown = false;
     private Image timeBar; //Временная шкала
-    [SerializeField] private float time = 1.0f;
-    private float timeLeft;
+    [SerializeField] private float time = 1.0f; //Время на свайп
+    private float timeLeft; //Оставшееся время
+    [SerializeField]private HealthPoint healthPoint; //Здоровье
     private enum ArrowDirection
     {
         Up,
@@ -105,6 +106,7 @@ public class SwipePanelController : MonoBehaviour, IBeginDragHandler, IDragHandl
     }
     private void FailConfirm()
     {
+        healthPoint.ReduceHealth();   //Уменьшить количество здоровья
         Debug.Log("Fail");
         HideSwipePanel(); //Убрать панель
     }

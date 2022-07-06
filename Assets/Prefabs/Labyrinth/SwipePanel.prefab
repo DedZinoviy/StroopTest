@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3427216964028483151}
   - component: {fileID: 3882090014028047616}
   - component: {fileID: 6969832931868597881}
+  - component: {fileID: 673813577}
   m_Layer: 5
   m_Name: SwipePanel
   m_TagString: Untagged
@@ -102,6 +103,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &673813577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397109658518346156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b012665a16c8fb478bef0d1145bdc62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arrows:
+  - {fileID: 678973951, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
+  - {fileID: -1975321256, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
+  - {fileID: 413626359, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
+  - {fileID: -1812980122, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
+  time: 1
+  healthPoint: {fileID: 1138011492118158835, guid: ea4c778e5da5ff445a6d40fded42f1a8, type: 3}
 --- !u!1 &6806086191335469960
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 18.374817}
+  m_AnchoredPosition: {x: 0, y: 11.784302}
   m_SizeDelta: {x: 0, y: 36.7499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2835622391082987866
@@ -246,7 +266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
