@@ -14,9 +14,16 @@ public enum CardState
 
 public enum CardType
 {
+    APPLE,
+    BANANA,
     CHERRY,
+    GRAPE,
+    ORANGE,
     PEAR,
-    QIWI
+    PLUM,
+    QIWI,
+    STRAWBERRY,
+    WATERMELLON
 }
 
 public class Card : MonoBehaviour, IPointerClickHandler
@@ -39,15 +46,13 @@ public class Card : MonoBehaviour, IPointerClickHandler
     private CardState mCardState = CardState.Back;// Текущее состояние карты: лицевая или оборотная?
     private bool isActive = false;// истина означает, что ролловер выполняется и его нельзя прерывать
     private GameObject mFront;
+    private Vector3 cardScale;
 
     /// <summary>
     /// Инициализируем угол карты, согласно mCardState
     /// </summary>
     public void Init()
     {
-        mFront = mFronts[(int)type];
-        mFront.SetActive(true);
-
         if (mCardState == CardState.Front)
         {
             // Если вы начинаете спереди, поверните назад на 90 градусов, чтобы спина не была видна
@@ -63,6 +68,8 @@ public class Card : MonoBehaviour, IPointerClickHandler
     }
     private void Start()
     {
+        mFront = mFronts[(int)type];
+        mFront.SetActive(true);
         Init();
     }
 
@@ -84,6 +91,7 @@ public class Card : MonoBehaviour, IPointerClickHandler
             return;
         StartCoroutine(ToFront());
     }
+
     /// <summary>
     /// перевернуть на спину
     /// </summary>

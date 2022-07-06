@@ -7,8 +7,14 @@ public class CardSpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject cardPrefab;
-    
-    private CardType[] cardTypes = new CardType[] { CardType.CHERRY, CardType.PEAR, CardType.QIWI };
+
+    private CardType[] cardTypes = new CardType[]
+    {
+        CardType.CHERRY, CardType.PEAR, CardType.QIWI,
+        CardType.APPLE, CardType.BANANA, CardType.GRAPE,
+        CardType.ORANGE, CardType.STRAWBERRY, CardType.PLUM,
+        CardType.WATERMELLON
+    };
 
     [SerializeField]
     private int pairsCount = 2;
@@ -23,25 +29,36 @@ public class CardSpawner : MonoBehaviour
     {
         int id = 0;
 
-        int rowsCount;
-        int collumnCount;
+        int collumnCount = CalculateCollumnCount(pairsCount);
+        int rowsCount = 2 * pairsCount / collumnCount;
+        float cardScale = CalculateCardScale(pairsCount);
+        float deltaCoordinates = -1 / (cardScale / 2f);
 
-        if (pairsCount < 6) collumnCount = 2;
-        else if (pairsCount == 6) collumnCount = 3;
-        else collumnCount = 4;
-
-        rowsCount = 2 * pairsCount / collumnCount;
-
-        float x = (collumnCount - 1) / -2f;
-        for (int i = 0; i < collumnCount; i++, x++)
+        float x = (collumnCount - 1) / deltaCoordinates;
+        for (int i = 0; i < collumnCount; i++, x += cardScale)
         {
-            float y = (rowsCount - 1) / -2f;
-            for (int j = 0; j < rowsCount; j++, y++)
+            float y = (rowsCount - 1) / deltaCoordinates;
+            for (int j = 0; j < rowsCount; j++, y += cardScale)
             {
                 cards[id].gameObject.transform.position = new Vector3(x, y, 0);
+                cards[id].gameObject.transform.localScale = new Vector3(cardScale, cardScale, 1);
                 id++;
             }
         }
+    }
+
+    private int CalculateCollumnCount(int pairsAmount)
+    {
+        if (pairsAmount < 6) return 2;
+        else if (pairsAmount == 6) return 3;
+        else return 4;
+    }
+
+    private float CalculateCardScale(int pairsAmount)
+    {
+        if (pairsAmount < 5) return 2f;
+        else if (pairsAmount == 5 || pairsAmount == 6) return 1.5f;
+        else return 1.2f;
     }
 
     private List<Card> GenerateCardsList()
@@ -53,7 +70,7 @@ public class CardSpawner : MonoBehaviour
             for (int j = 0; j < 2; j ++)
             {
                 Card newCard = Instantiate(cardPrefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Card>();
-                newCard.type = cardTypes[0]; //!!!! [i]
+                newCard.type = cardTypes[i];
                 newCard.Id = id;
                 newCard.mechanic = gameObject.GetComponent<MechanicGame>();
                 cards.Add(newCard);
