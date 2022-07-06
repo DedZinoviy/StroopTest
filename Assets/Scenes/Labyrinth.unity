@@ -243,10 +243,10 @@ RectTransform:
   m_Father: {fileID: 2034749405}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.9465075}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 135.84006}
-  m_SizeDelta: {x: 273.9999, y: 12.1798935}
+  m_AnchorMin: {x: 0, y: 0.90400004}
+  m_AnchorMax: {x: 0.99000007, y: 1}
+  m_AnchoredPosition: {x: 1.5004578, y: 0.19381714}
+  m_SizeDelta: {x: 3, y: 0.38757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224261377
 MonoBehaviour:
@@ -473,10 +473,10 @@ RectTransform:
   m_Father: {fileID: 467609096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.105}
-  m_AnchorMin: {x: 0.05011111, y: 0.054590993}
-  m_AnchorMax: {x: 0.9498148, y: 0.9465075}
-  m_AnchoredPosition: {x: -0.049987793, y: -0.5360718}
-  m_SizeDelta: {x: 2.000122, y: 4.5884247}
+  m_AnchorMin: {x: 0.050355718, y: 0.054590993}
+  m_AnchorMax: {x: 0.9531705, y: 0.89900005}
+  m_AnchoredPosition: {x: -0.5700073, y: -1.4149933}
+  m_SizeDelta: {x: 1, y: 2.8305}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &332229288
 MonoBehaviour:
@@ -866,8 +866,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9498148, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 130.02463, y: 1}
-  m_SizeDelta: {x: 13.755859, y: 281.87}
+  m_AnchoredPosition: {x: 0.0009918213, y: -0.0015106}
+  m_SizeDelta: {x: 0, y: 0.0029907}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1551297745
 MonoBehaviour:
@@ -1077,8 +1077,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.05011111, y: 1}
-  m_AnchoredPosition: {x: -130.13727, y: 0}
-  m_SizeDelta: {x: 13.735531, y: 283.87}
+  m_AnchoredPosition: {x: 0.0010681152, y: 0.0014801025}
+  m_SizeDelta: {x: 0, y: -0.0030518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822439794
 MonoBehaviour:
@@ -1298,8 +1298,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -274, y: -284}
+  m_AnchoredPosition: {x: 0.000076293945, y: 0.000015258789}
+  m_SizeDelta: {x: 0.000091553, y: 0.000030518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2048963473
 PrefabInstance:
@@ -1422,9 +1422,17 @@ PrefabInstance:
       value: Labyrinth Creator
       objectReference: {fileID: 0}
     - target: {fileID: 4428841849287242402, guid: b9481f9b8bc8e5445809a049b2b2cb4b, type: 3}
+      propertyPath: Width
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428841849287242402, guid: b9481f9b8bc8e5445809a049b2b2cb4b, type: 3}
       propertyPath: Camera
       value: 
       objectReference: {fileID: 297189885}
+    - target: {fileID: 4428841849287242402, guid: b9481f9b8bc8e5445809a049b2b2cb4b, type: 3}
+      propertyPath: Height
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4428841849287242402, guid: b9481f9b8bc8e5445809a049b2b2cb4b, type: 3}
       propertyPath: CountTraps
       value: 3
