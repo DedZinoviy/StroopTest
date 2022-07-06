@@ -6,6 +6,9 @@ using System;
 using UnityEngine.UI;
 using System.Linq;
 
+/// <summary>
+/// Class providing general Stroop test scene management.
+/// </summary>
 public class Controller : MonoBehaviour
 {
     [SerializeField] private DisplayColor EtalonColor;
@@ -15,13 +18,14 @@ public class Controller : MonoBehaviour
     [SerializeField] private Bar TimeBar;
     [SerializeField] private SceneChanger Change;
     [SerializeField] private int QuestionCount;
+    [SerializeField] private double Seconds;
+    [SerializeField] private float safeTime;
+    [SerializeField] private double QuestionTime;
     private PlayerPrefs save = new PlayerPrefs();
-    [SerializeField]private double Seconds;
     private double OriginalSec;
-    [SerializeField]private double QuestionTime;
     private double OriginalQuestionTime;
     private int Score = 0;
-    [SerializeField]private float safeTime;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +40,13 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (safeTime <= 0)
+        if (safeTime <= 0) // Если закончилось безопасное время.
         {
+            // Активировать кнопки, отвечающие за цвета.
             List<Button> buttons = GameObject.FindObjectsOfType<Button>().ToList();
             buttons.ForEach(button => button.enabled = true);
-            TimeEdit.color = Color.white;
+
+            TimeEdit.color = Color.white; // Вернуть цвет в исходное состояние.
             if (Seconds > 0) // Если время не вышло...
             {
 
@@ -58,10 +64,10 @@ public class Controller : MonoBehaviour
                 Change.ToMenu(); // Выйти в меню.
             }
         }
-        else
+        else // Иначе...
         {
-            this.SafeTime();
-            TimeEdit.text = "Начало через: " + Math.Round(safeTime, 1);
+            this.SafeTime(); // Уменьшить безопасное время.
+            TimeEdit.text = "Начало через: " + Math.Round(safeTime, 1); // Отобразить оставшееся безопасное время на экране.
         }
 
     }
@@ -83,9 +89,9 @@ public class Controller : MonoBehaviour
         }
         ScoreEdit.text = "Счёт: " + Score + "/" + QuestionCount; // Отобразить счёт на экране.
         text.SetText(); // Перемешать кнопки.
-        this.SetOriginalQuestionTime();
-        TimeBar.ReturnToOriginScale();
-        TimeBar.ChangeBarColor(1);
+        this.SetOriginalQuestionTime(); // Вернуть время на вопрос к исходному значению.
+        TimeBar.ReturnToOriginScale(); // Востановить шкалу в размере.
+        TimeBar.ChangeBarColor(1); // Вернуть шкале исходный цвет.
     }
 
     /// <summary>
@@ -99,6 +105,9 @@ public class Controller : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Provding management with save time.
+    /// </summary>
     private void TimePerQuestion()
     {
         if (QuestionTime > 0) // Если время на вопрос не вышло...
@@ -107,25 +116,31 @@ public class Controller : MonoBehaviour
             QuestionTime -= Time.deltaTime; // Уменьшить время на вопрос.
             double percent = QuestionTime / prevSec;
             double colorPerc = QuestionTime / OriginalQuestionTime;
-            TimeBar.ChangeBarSize((float)percent);
-            TimeBar.ChangeBarColor((float)colorPerc);
+            TimeBar.ChangeBarSize((float)percent); // Изменить резмер шкалы.
+            TimeBar.ChangeBarColor((float)colorPerc); // Изменить цвет шкалы.
         }
-        else
+        else // Иначе...
         {
-            text.SetText();
-            EtalonColor.ChangeText();
-            EtalonColor.ChangeTextColor();
-            QuestionTime = OriginalQuestionTime;
-            TimeBar.ReturnToOriginScale();
-            TimeBar.ChangeBarColor(1);
+            text.SetText(); // Изменить положение кнопок.
+            EtalonColor.ChangeText(); // Изменить текст на дисплее.
+            EtalonColor.ChangeTextColor(); // Изменить цвет текста на дисплее.
+            QuestionTime = OriginalQuestionTime; // Вернуть время на вопрос к исходному значению.
+            TimeBar.ReturnToOriginScale(); // Востановить шкалу в размере.
+            TimeBar.ChangeBarColor(1); // Вернуть шкале исходный цвет.
         }
     }
 
+    /// <summary>
+    /// Returns Qusetion time to default value.
+    /// </summary>
     private void SetOriginalQuestionTime()
     {
         QuestionTime = OriginalQuestionTime;
     }
 
+    /// <summary>
+    /// Decreases save time.
+    /// </summary>
     private void SafeTime()
     {
         safeTime -= Time.deltaTime;
