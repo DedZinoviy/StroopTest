@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 5157653711788172622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 14.405, y: -0.0000069141}
-  m_SizeDelta: {x: 28.81, y: 25.86}
+  m_AnchorMin: {x: 0, y: 0.083000004}
+  m_AnchorMax: {x: 0.26414576, y: 0.90516734}
+  m_AnchoredPosition: {x: -0.024810791, y: -0.00008392334}
+  m_SizeDelta: {x: 0.050385, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5157653711279317444
 CanvasRenderer:
@@ -109,10 +109,10 @@ RectTransform:
   m_Father: {fileID: 5157653711788172622}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 76, y: -0.000019073}
-  m_SizeDelta: {x: 76.81, y: 25.86}
+  m_AnchorMin: {x: 0.26414576, y: 0.083000004}
+  m_AnchorMax: {x: 0.5413884, y: 0.90516734}
+  m_AnchoredPosition: {x: 29, y: -0.000038146973}
+  m_SizeDelta: {x: 1.0006409, y: 0.000076293945}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5157653711759830720
 CanvasRenderer:
@@ -169,15 +169,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.1
+  m_fontSize: 87.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 120
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -263,4 +263,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthText: {fileID: 5157653711759830723}
-  HealthCount: 3
+  MaxHealthCount: 3
+  SceneChanger: {fileID: 0}
