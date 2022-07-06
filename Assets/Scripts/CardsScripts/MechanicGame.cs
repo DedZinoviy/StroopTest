@@ -6,6 +6,11 @@ using System.Linq;
 
 public class MechanicGame : MonoBehaviour
 {
+    [SerializeField]
+    private SceneChanger changer;
+
+    public int pairsCount { get; set; }
+
     private List<Card> Cards = new List<Card>();
     private bool isActive = false;
 
@@ -37,6 +42,10 @@ public class MechanicGame : MonoBehaviour
         {
             Destroy(firstCard.gameObject);
             Destroy(secondCard.gameObject);
+            pairsCount--;
+
+            if (pairsCount <= 0)
+                changer.NextScene();
         }
         else
         {

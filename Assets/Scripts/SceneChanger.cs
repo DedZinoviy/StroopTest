@@ -90,7 +90,7 @@ public class SceneChanger : MonoBehaviour
     /// </summary>
     private void GenerateScenesSequence()
     {
-        scenesSequence = new List<string> { "FallingFruits", "Labyrinth", "StroopTest" };  // Перечислиить все возможные сцены.
+        scenesSequence = new List<string> { "FallingFruits", "Labyrinth", "StroopTest", "CardPairs" };  // Перечислиить все возможные сцены.
 
         // Создать случайную последовательность.
         for (int i = scenesSequence.Count - 1; i >= 1; i--) // Для каждой сцены.

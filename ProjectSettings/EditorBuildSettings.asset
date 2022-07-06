@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FallingFruits.unity
     guid: c9c622d052955cb48bb909b73c302f83
+  - enabled: 1
+    path: Assets/Scenes/CardPairs.unity
+    guid: 74508dd686212a94aa0c2d2ef5bb1e20
   m_configObjects: {}

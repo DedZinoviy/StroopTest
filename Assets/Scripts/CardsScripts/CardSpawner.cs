@@ -16,6 +16,7 @@ public class CardSpawner : MonoBehaviour
     private void Start()
     {
         SprideCards(GenerateCardsList());
+        gameObject.GetComponent<MechanicGame>().pairsCount = pairsCount;
     }
 
     private void SprideCards(List<Card> cards)
@@ -52,7 +53,7 @@ public class CardSpawner : MonoBehaviour
             for (int j = 0; j < 2; j ++)
             {
                 Card newCard = Instantiate(cardPrefab, new Vector3(0, 0, 0), Quaternion.identity).GetComponent<Card>();
-                newCard.type = cardTypes[i]; //!!!! [i]
+                newCard.type = cardTypes[0]; //!!!! [i]
                 newCard.Id = id;
                 newCard.mechanic = gameObject.GetComponent<MechanicGame>();
                 cards.Add(newCard);
