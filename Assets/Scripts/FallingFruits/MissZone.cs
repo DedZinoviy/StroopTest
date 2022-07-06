@@ -27,9 +27,11 @@ public class MissZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Fruit missedFruit = collision.gameObject.GetComponent<Fruit>();
-        if (safeTime <= 0 && missedFruit != null)
+        if (missedFruit != null)
         {
-            controller.MissFruit(missedFruit.color);
+            if (safeTime <= 0)
+                controller.MissFruit(missedFruit.color);
+            
             missedFruit.Remove();
         }
     }
