@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
+using System.Linq;
 
 public class Controller : MonoBehaviour
 {
@@ -19,12 +21,14 @@ public class Controller : MonoBehaviour
     [SerializeField]private double QuestionTime;
     private double OriginalQuestionTime;
     private int Score = 0;
+    [SerializeField]private float safeTime;
 
     // Start is called before the first frame update
     void Start()
     {
         Score = 0;
-        //Seconds = 20;
+        TimeEdit.text = "Начало через: " + Math.Round(safeTime, 1);
+        TimeEdit.color = Color.red;
         OriginalSec = Seconds;
         OriginalQuestionTime =  QuestionTime;
     }
@@ -32,21 +36,32 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Seconds > 0) // Если время не вышло...
+        if (safeTime <= 0)
         {
-            
-            Seconds -= Time.deltaTime; // Уменьшить оставшееся время.
-            TimeEdit.text = "Время: " + Math.Round(Seconds, 1); // Вывести оставшееся время на экран.
-            this.TimePerQuestion(); // Изменить время одного вопроса.    
-        }
-        else // Иначе...
-        {
-            if (this.Score > save.LoadScore()) // Сохранить результат, если он является новым рекордом.
+            List<Button> buttons = GameObject.FindObjectsOfType<Button>().ToList();
+            buttons.ForEach(button => button.enabled = true);
+            TimeEdit.color = Color.white;
+            if (Seconds > 0) // Если время не вышло...
             {
-                save.HighestScore = this.Score;
-                save.SaveScore();
+
+                Seconds -= Time.deltaTime; // Уменьшить оставшееся время.
+                TimeEdit.text = "Время: " + Math.Round(Seconds, 1); // Вывести оставшееся время на экран.
+                this.TimePerQuestion(); // Изменить время одного вопроса.    
             }
-            Change.ToMenu(); // Выйти в меню.
+            else // Иначе...
+            {
+                if (this.Score > save.LoadScore()) // Сохранить результат, если он является новым рекордом.
+                {
+                    save.HighestScore = this.Score;
+                    save.SaveScore();
+                }
+                Change.ToMenu(); // Выйти в меню.
+            }
+        }
+        else
+        {
+            this.SafeTime();
+            TimeEdit.text = "Начало через: " + Math.Round(safeTime, 1);
         }
 
     }
@@ -66,7 +81,7 @@ public class Controller : MonoBehaviour
         {
             Seconds -= 0.5; // Вычесть время в качестве штрафа.
         }
-        ScoreEdit.text = "Счёт: " + Score; // Отобразить счёт на экране.
+        ScoreEdit.text = "Счёт: " + Score + "/" + QuestionCount; // Отобразить счёт на экране.
         text.SetText(); // Перемешать кнопки.
         this.SetOriginalQuestionTime();
         TimeBar.ReturnToOriginScale();
@@ -109,5 +124,10 @@ public class Controller : MonoBehaviour
     private void SetOriginalQuestionTime()
     {
         QuestionTime = OriginalQuestionTime;
+    }
+
+    private void SafeTime()
+    {
+        safeTime -= Time.deltaTime;
     }
 }
