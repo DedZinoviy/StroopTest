@@ -74,8 +74,8 @@ public class Cell : MonoBehaviour
         {
             curWall.tag = "trap";
             curWall.SetActive(true);
-            curWall.GetComponent<LineRenderer>().startColor = new Color(79f/256, 31f/256, 31f/256); //Установить цвет
-            curWall.GetComponent<LineRenderer>().endColor = new Color(79f / 256, 31f / 256, 31f / 256); //Установить цвет
+            curWall.GetComponent<LineRenderer>().startColor = new Color(227f / 256, 26f / 256, 0f/256); //Установить цвет
+            curWall.GetComponent<LineRenderer>().endColor = new Color(227f / 256, 26f / 256, 0f / 256); //Установить цвет
             curWall.GetComponent<BoxCollider2D>().isTrigger = true; //Сделать триггером
             curWall.AddComponent<TrapTrigger>(); //Добавление обработчика триггера
             curWall.GetComponent<TrapTrigger>().player = GameObject.FindGameObjectWithTag("Player"); //Передача параметра обработчику
