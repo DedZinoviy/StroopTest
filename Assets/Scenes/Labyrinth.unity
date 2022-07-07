@@ -1269,6 +1269,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!111 &1666304692 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 7530888133897544801, guid: 3f27fd6a0b25ced4eb616613a13f8a44, type: 3}
+  m_PrefabInstance: {fileID: 7608589740106356943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1810938361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,6 +1770,10 @@ PrefabInstance:
       propertyPath: SceneChanger
       value: 
       objectReference: {fileID: 1245898114}
+    - target: {fileID: 1138011492118158835, guid: ea4c778e5da5ff445a6d40fded42f1a8, type: 3}
+      propertyPath: PlayerAnimation
+      value: 
+      objectReference: {fileID: 1666304692}
     - target: {fileID: 5157653711279317446, guid: ea4c778e5da5ff445a6d40fded42f1a8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.024810791
@@ -1866,6 +1875,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7530888133897544801, guid: 3f27fd6a0b25ced4eb616613a13f8a44, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530888133897544801, guid: 3f27fd6a0b25ced4eb616613a13f8a44, type: 3}
+      propertyPath: m_Animations.Array.data[0]
+      value: 
+      objectReference: {fileID: 7400000, guid: 8e45952b9a08055409fbebe79ef8e2c1, type: 2}
     - target: {fileID: 7608589740018329594, guid: 3f27fd6a0b25ced4eb616613a13f8a44, type: 3}
       propertyPath: m_RootOrder
       value: 3
