@@ -17,14 +17,15 @@ public class Controller : MonoBehaviour
     [SerializeField] private TMP_Text TimeEdit;
     [SerializeField] private Bar TimeBar;
     [SerializeField] private SceneChanger Change;
-    [SerializeField] private int QuestionCount;
-    [SerializeField] private double Seconds;
     [SerializeField] private float safeTime;
-    [SerializeField] private double QuestionTime;
     private PlayerPrefs save = new PlayerPrefs();
+    private int QuestionCount;
+    private double QuestionTime;
+    private double Seconds;
     private double OriginalSec;
     private double OriginalQuestionTime;
     private int Score = 0;
+    private int LevelComlexity;
     
 
     // Start is called before the first frame update
@@ -33,6 +34,9 @@ public class Controller : MonoBehaviour
         Score = 0;
         TimeEdit.text = "Начало через: " + Math.Round(safeTime, 1);
         TimeEdit.color = Color.red;
+        this.LevelComlexity = save.LoadLevelComplexity();
+        this.SetLevelComlexity(LevelComlexity);
+        this.ScoreEdit.text = "Счёт: 0/" + this.QuestionCount;
         OriginalSec = Seconds;
         OriginalQuestionTime =  QuestionTime;
     }
@@ -144,5 +148,43 @@ public class Controller : MonoBehaviour
     private void SafeTime()
     {
         safeTime -= Time.deltaTime;
+    }
+
+    /// <summary>
+    /// Changes the difficulty level depending on the received value.
+    /// </summary>
+    /// <param name="levelEval">Value of Complexity - [1; 5]; if the value is outside the range, the difficulty will be placed on the range boundaries.</param>
+    private void SetLevelComlexity(int levelEval)
+    {
+        if (levelEval <= 1)
+        {
+            this.Seconds = 10;
+            this.QuestionCount = 2;
+            this.QuestionTime = 5;
+        }
+        else if (levelEval == 2)
+        {
+            this.Seconds = 12;
+            this.QuestionCount = 4;
+            this.QuestionTime = 4.6;
+        }
+        else if (levelEval == 3)
+        {
+            this.Seconds = 14;
+            this.QuestionCount = 6;
+            this.QuestionTime = 4.2;
+        }
+        else if (levelEval == 4)
+        {
+            this.Seconds = 16;
+            this.QuestionCount = 8;
+            this.QuestionTime = 3.8;
+        }
+        else if (levelEval >= 5)
+        {
+            this.Seconds = 20;
+            this.QuestionCount = 10;
+            this.QuestionTime = 3;
+        }
     }
 }
