@@ -12,8 +12,6 @@ public class PlayerPrefs : MonoBehaviour
     /// </summary>
     public int HighestScore { get; set; }
 
-    public int LevelComplexity { get; set; }
-
     /// <summary>
     /// Default constructor.
     /// </summary>
@@ -33,9 +31,9 @@ public class PlayerPrefs : MonoBehaviour
     /// <summary>
     /// Saves level complexity in log.
     /// </summary>
-    public void SaveLevelComlexity()
+    public void SaveLevelComlexity(int levelComplexity)
     {
-        UnityEngine.PlayerPrefs.SetInt("LevelComplexity", LevelComplexity);
+        UnityEngine.PlayerPrefs.SetInt("LevelComplexity", levelComplexity);
     }
 
     /// <summary>
@@ -44,11 +42,20 @@ public class PlayerPrefs : MonoBehaviour
     /// <returns>Contained level complexity.</returns>
     public int LoadLevelComplexity()
     {
+        int levelComplexity = 0;
         if (UnityEngine.PlayerPrefs.HasKey("LevelComplexity"))
         {
-            this.LevelComplexity = UnityEngine.PlayerPrefs.GetInt("LevelComplexity");
+            levelComplexity = UnityEngine.PlayerPrefs.GetInt("LevelComplexity");
         }
-        return this.LevelComplexity;
+        return levelComplexity;
+    }
+
+    public void ClearLevelComplexity()
+    {
+        if (UnityEngine.PlayerPrefs.HasKey("LevelComplexity"))
+        {
+            UnityEngine.PlayerPrefs.DeleteKey("LevelComplexity");
+        }
     }
 
     /// <summary>

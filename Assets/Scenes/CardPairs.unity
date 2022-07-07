@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 5635937898508032752, guid: 1879d2e90e2110247bd025ab482474ec, type: 3}
-  pairsCount: 6
+  pairsCount: 5
 --- !u!114 &1662983695
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,6 +22,11 @@ public class SceneChanger : MonoBehaviour
     private List<string> scenesSequence;
 
     /// <summary>
+    /// Current complexity level.
+    /// </summary>
+    private int levelComplexity;
+
+    /// <summary>
     /// Instance of randomizer.
     /// </summary>
     private System.Random random;
@@ -31,12 +36,7 @@ public class SceneChanger : MonoBehaviour
     {
         scenesSequence = playerPrefs.GetScenes();
         random = new System.Random(DateTime.Now.Millisecond);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        levelComplexity = playerPrefs.LoadLevelComplexity();
     }
 
     /// <summary>
@@ -45,7 +45,17 @@ public class SceneChanger : MonoBehaviour
     public void NextScene()
     {
         if (scenesSequence.Count <= 0) // Сгенерировать массив сцен, если он пустой.
+        {
             GenerateScenesSequence();
+            levelComplexity++;
+            playerPrefs.SaveLevelComlexity(levelComplexity);
+        }
+
+        if (SceneManager.GetActiveScene().name == scenesSequence[0])
+        {
+            Debug.Log("SwitchScene");
+            (scenesSequence[0], scenesSequence[^1]) = (scenesSequence[^1], scenesSequence[0]);
+        }
 
         string nextScene = scenesSequence[0]; // Получить название следующей сцены.
         scenesSequence.RemoveAt(0); // Считать выбранную сцену использованной.
@@ -59,6 +69,7 @@ public class SceneChanger : MonoBehaviour
     public void ToMenu()
     {
         playerPrefs.ClearScenes(); // Очистить список сцен.
+        playerPrefs.ClearLevelComplexity(); //Сбросить уровень сложности.
         ChangeScene("MainMenu"); // Открыть сцену меню.
     }
 
