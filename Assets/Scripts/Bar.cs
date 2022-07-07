@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class for describing scale bars in app.
@@ -10,7 +11,7 @@ public class Bar : MonoBehaviour
     /// <summary>
     /// Bar's sprite.
     /// </summary>
-    private SpriteRenderer sprite;
+    private Image sprite;
 
     /// <summary>
     /// Bar''s size.
@@ -22,7 +23,7 @@ public class Bar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>(); // Установить объект шкалы при запуске.
+        sprite = GetComponent<Image>(); // Установить объект шкалы при запуске.
         originSize = sprite.sprite.rect.size; // Узнать изначальный размер шкалы.
         originScale = transform.localScale;
     }
