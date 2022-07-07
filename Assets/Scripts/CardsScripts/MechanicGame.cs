@@ -9,6 +9,32 @@ public class MechanicGame : MonoBehaviour
     [SerializeField]
     private SceneChanger changer;
 
+    [SerializeField] private Bar TimeBar;
+    [SerializeField] private double Seconds;
+    private double OriginalSeconds;
+
+    void Start()
+    {
+        OriginalSeconds = Seconds;
+    }
+
+    void Update()
+    {
+        if (Seconds > 0)
+        {
+            double prevSec = Seconds;
+            Seconds -= Time.deltaTime;
+            double percent = Seconds / prevSec;
+            double colorPerc = Seconds / OriginalSeconds;
+            TimeBar.ChangeBarSize((float)percent);
+            TimeBar.ChangeBarColor((float)colorPerc);
+        }
+        else
+        {
+            changer.ToMenu();
+        }
+    }
+
     public int pairsCount { get; set; }
 
     private List<Card> Cards = new List<Card>();
