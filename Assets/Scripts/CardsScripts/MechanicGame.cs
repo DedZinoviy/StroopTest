@@ -15,6 +15,8 @@ public class MechanicGame : MonoBehaviour
     [SerializeField] private Bar TimeBar;
     private double Seconds;
     private double OriginalSeconds;
+    private float safeTime = 1;
+    private float origSafeTime;
 
     void Start()
     {
@@ -24,23 +26,37 @@ public class MechanicGame : MonoBehaviour
             lvlComplexity--;
 
         Seconds = 8 + Math.Exp(lvlComplexity);
-        OriginalSeconds = Seconds;        
+        OriginalSeconds = Seconds;
+        origSafeTime = safeTime;
     }
 
     void Update()
     {
-        if (Seconds > 0)
+        List<BoxCollider2D> cards = GameObject.FindObjectsOfType<BoxCollider2D>().ToList();
+        if (safeTime <= 0)
         {
-            double prevSec = Seconds;
-            Seconds -= Time.deltaTime;
-            double percent = Seconds / prevSec;
-            double colorPerc = Seconds / OriginalSeconds;
-            TimeBar.ChangeBarSize((float)percent);
-            TimeBar.ChangeBarColor((float)colorPerc);
+            cards.ForEach(card => card.enabled = true);
+
+            if (Seconds > 0)
+            {
+                double prevSec = Seconds;
+                Seconds -= Time.deltaTime;
+                double percent = Seconds / prevSec;
+                double colorPerc = Seconds / OriginalSeconds;
+                TimeBar.ChangeBarSize((float)percent);
+                TimeBar.ChangeBarColor((float)colorPerc);
+            }
+            else
+            {
+                changer.ToMenu();
+            }
         }
         else
         {
-            changer.ToMenu();
+            cards.ForEach(card => card.enabled = false);
+            this.SafeTime();
+            double colorPerc = safeTime / this.origSafeTime;
+            TimeBar.ChangeBarColor((float)colorPerc);
         }
     }
 
@@ -88,5 +104,14 @@ public class MechanicGame : MonoBehaviour
             secondCard.StartBack();
         }
     }
-    
+
+    /// <summary>
+    /// Decreases save time.
+    /// </summary>
+    private void SafeTime()
+    {
+        safeTime -= Time.deltaTime;
+    }
+
+
 }
