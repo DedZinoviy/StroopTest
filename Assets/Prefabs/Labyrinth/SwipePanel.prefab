@@ -116,12 +116,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Arrows:
-  - {fileID: 678973951, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
-  - {fileID: -1975321256, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
-  - {fileID: 413626359, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
-  - {fileID: -1812980122, guid: 8b00ff8093f987543b1ef066f3e1cedc, type: 3}
+  - {fileID: -830209336, guid: 3bf0c94108f102349a86709b2847b90e, type: 3}
+  - {fileID: 64020255, guid: 3bf0c94108f102349a86709b2847b90e, type: 3}
+  - {fileID: 1851864841, guid: 3bf0c94108f102349a86709b2847b90e, type: 3}
+  - {fileID: 398075867, guid: 3bf0c94108f102349a86709b2847b90e, type: 3}
   time: 1
-  healthPoint: {fileID: 1138011492118158835, guid: ea4c778e5da5ff445a6d40fded42f1a8, type: 3}
+  healthPoint: {fileID: 0}
 --- !u!1 &6806086191335469960
 GameObject:
   m_ObjectHideFlags: 0
