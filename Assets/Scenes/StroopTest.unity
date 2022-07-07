@@ -222,6 +222,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1155,6 +1156,7 @@ MonoBehaviour:
   TimeBar: {fileID: 1876564500}
   Change: {fileID: 223498004}
   safeTime: 1
+  save: {fileID: 973296832}
 --- !u!1 &720041734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,8 +1351,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 223498004}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: ChangeScene
-        m_Mode: 5
+        m_MethodName: ToMenu
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1402,6 +1404,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 136346617}
     m_Modifications:
     - target: {fileID: 8533818253421151430, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
@@ -1453,7 +1456,19 @@ PrefabInstance:
       value: SceneChanger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
+--- !u!114 &973296832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1514330909708482588, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
+  m_PrefabInstance: {fileID: 973296831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdfec6e05ce7b549866104c8d9ca86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1013940621
 GameObject:
   m_ObjectHideFlags: 0

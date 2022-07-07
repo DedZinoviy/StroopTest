@@ -18,7 +18,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private Bar TimeBar;
     [SerializeField] private SceneChanger Change;
     [SerializeField] private float safeTime;
-    private PlayerPrefs save = new PlayerPrefs();
+    [SerializeField] private PlayerPrefs save;
     private int QuestionCount;
     private double QuestionTime;
     private double Seconds;
@@ -60,11 +60,6 @@ public class Controller : MonoBehaviour
             }
             else // Иначе...
             {
-                if (this.Score > save.LoadScore()) // Сохранить результат, если он является новым рекордом.
-                {
-                    save.HighestScore = this.Score;
-                    save.SaveScore();
-                }
                 Change.ToMenu(); // Выйти в меню.
             }
         }
