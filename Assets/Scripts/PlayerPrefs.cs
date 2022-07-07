@@ -12,6 +12,8 @@ public class PlayerPrefs : MonoBehaviour
     /// </summary>
     public int HighestScore { get; set; }
 
+    public int LevelComplexity { get; set; }
+
     /// <summary>
     /// Default constructor.
     /// </summary>
@@ -26,6 +28,27 @@ public class PlayerPrefs : MonoBehaviour
     public void SaveScore()
     {
         UnityEngine.PlayerPrefs.SetInt("SavedInteger", HighestScore); // Сохранить информацию о счёте.
+    }
+
+    /// <summary>
+    /// Saves level complexity in log.
+    /// </summary>
+    public void SaveLevelComlexity()
+    {
+        UnityEngine.PlayerPrefs.SetInt("LevelComplexity", LevelComplexity);
+    }
+
+    /// <summary>
+    /// Loads the level complexity from log.
+    /// </summary>
+    /// <returns>Contained level complexity.</returns>
+    public int LoadLevelComplexity()
+    {
+        if (UnityEngine.PlayerPrefs.HasKey("LevelComplexity"))
+        {
+            this.LevelComplexity = UnityEngine.PlayerPrefs.GetInt("LevelComplexity");
+        }
+        return this.LevelComplexity;
     }
 
     /// <summary>
