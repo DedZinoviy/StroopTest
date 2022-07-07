@@ -8,24 +8,50 @@ using UnityEngine;
 public class PlayerPrefs : MonoBehaviour
 {
     /// <summary>
-    /// The highest game score.
+    /// Saves score in log.
     /// </summary>
-    public int HighestScore { get; set; }
-
-    /// <summary>
-    /// Default constructor.
-    /// </summary>
-    public PlayerPrefs()
+    public void SaveScore(int newScore)
     {
-        HighestScore = 0;
+        int currentScore = LoadScore();
+        if (newScore > currentScore)
+            UnityEngine.PlayerPrefs.SetInt("SavedInteger", newScore); // Сохранить информацию о счёте.
     }
 
     /// <summary>
-    /// Saves score in log.
+    /// Loads the score from log.
     /// </summary>
-    public void SaveScore()
+    /// <returns>Contained score.</returns>
+    public int LoadScore()
     {
-        UnityEngine.PlayerPrefs.SetInt("SavedInteger", HighestScore); // Сохранить информацию о счёте.
+        int score = 0;
+        if (UnityEngine.PlayerPrefs.HasKey("SavedInteger")) // Получить информацию о счёте, если таковая существует.
+        {
+            score = UnityEngine.PlayerPrefs.GetInt("SavedInteger");
+        }
+        return score; // Вернуть полученную информацию.
+    }
+
+    public void SaveCurrentScore(int score)
+    {
+        UnityEngine.PlayerPrefs.SetInt("CurrentScore", score);
+    }
+
+    public int LoadCurrentScore()
+    {
+        int currentScore = -1;
+        if (UnityEngine.PlayerPrefs.HasKey("CurrentScore")) // Получить информацию о счёте, если таковая существует.
+        {
+            currentScore = UnityEngine.PlayerPrefs.GetInt("CurrentScore");
+        }
+        return currentScore; // Вернуть полученную информацию.
+    }
+
+    public void ClearCurrentScore()
+    {
+        if (UnityEngine.PlayerPrefs.HasKey("CurrentScore")) // Получить информацию о счёте, если таковая существует.
+        {
+            UnityEngine.PlayerPrefs.DeleteKey("CurrentScore");
+        }
     }
 
     /// <summary>
@@ -59,25 +85,11 @@ public class PlayerPrefs : MonoBehaviour
     }
 
     /// <summary>
-    /// Loads the score from log.
-    /// </summary>
-    /// <returns>Contained score.</returns>
-    public int LoadScore()
-    {
-        if (UnityEngine.PlayerPrefs.HasKey("SavedInteger")) // Получить информацию о счёте, если таковая существует.
-        {
-            this.HighestScore = UnityEngine.PlayerPrefs.GetInt("SavedInteger");
-        }
-        return this.HighestScore; // Вернуть полученную информацию.
-    }
-
-    /// <summary>
     /// Clears all info in log.
     /// </summary>
     public void Clear()
     {
         UnityEngine.PlayerPrefs.DeleteAll(); // Стереть всю информацию в логе.
-        this.HighestScore = 0; // Стереть всю информацию о результате в модели.
     }
 
     /// <summary>
