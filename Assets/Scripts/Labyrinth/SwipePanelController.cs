@@ -106,9 +106,9 @@ public class SwipePanelController : MonoBehaviour, IBeginDragHandler, IDragHandl
     }
     private void FailConfirm()
     {
-        healthPoint.ReduceHealth();   //Уменьшить количество здоровья
         Debug.Log("Fail");
         HideSwipePanel(); //Убрать панель
+        healthPoint.ReduceHealth();   //Уменьшить количество здоровья
     }
 
     private void SuccessConfirm()

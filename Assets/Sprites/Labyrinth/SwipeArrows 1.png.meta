@@ -132,18 +132,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 57
-        y: 261
-        width: 191
-        height: 419
+        y: 263
+        width: 189
+        height: 417
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1f04d0b97cc14b4299d4f2835978ad0
-      internalID: 1083724532
+      spriteID: 09def7059d07f12448a0c64a571c4104
+      internalID: -830209336
       vertices: []
       indices: 
       edges: []
@@ -153,39 +153,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 481
-        y: 305
-        width: 192
-        height: 373
+        y: 319
+        width: 191
+        height: 359
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0ad3b2cebd12034598909d53d28d7fc
-      internalID: -448527077
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LeftArrow
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 421
-        height: 194
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8098277c7489bb14da6299b16df15efa
-      internalID: 272971808
+      spriteID: cf1c94c791e9d024fbd8e13a9084398f
+      internalID: 64020255
       vertices: []
       indices: 
       edges: []
@@ -196,17 +175,38 @@ TextureImporter:
         serializedVersion: 2
         x: 536
         y: 0
-        width: 375
+        width: 358
         height: 190
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9de89544224e874dacdc96371791832
-      internalID: 73177276
+      spriteID: 5cb3024b98b668540ace0f0a3f67a5c1
+      internalID: 398075867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftArrow
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 417
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f62c4a41e226b44f934fad5420dd75d
+      internalID: 1851864841
       vertices: []
       indices: 
       edges: []
@@ -222,10 +222,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DownArrow: -448527077
-      UpArrow: 1083724532
-      RightArrow: 73177276
-      LeftArrow: 272971808
+      SwipeArrows 1_4: 1475970810
+      DownArrow: 64020255
+      SwipeArrows 1_6: 1767578692
+      UpArrow: -830209336
+      RightArrow: 398075867
+      SwipeArrows 1_0: 641713569
+      LeftArrow: 1851864841
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
