@@ -9,13 +9,22 @@ public class MechanicGame : MonoBehaviour
     [SerializeField]
     private SceneChanger changer;
 
+    [SerializeField]
+    private PlayerPrefs playerPrefs;
+
     [SerializeField] private Bar TimeBar;
-    [SerializeField] private double Seconds;
+    private double Seconds;
     private double OriginalSeconds;
 
     void Start()
     {
-        OriginalSeconds = Seconds;
+        int lvlComplexity = playerPrefs.LoadLevelComplexity();
+
+        if (lvlComplexity >= 5)
+            lvlComplexity--;
+
+        Seconds = 8 + Math.Exp(lvlComplexity);
+        OriginalSeconds = Seconds;        
     }
 
     void Update()
@@ -57,7 +66,7 @@ public class MechanicGame : MonoBehaviour
     IEnumerator CloseCards()
     {
         isActive = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.8f);
 
         Card firstCard = Cards[0];
         Card secondCard = Cards[1];

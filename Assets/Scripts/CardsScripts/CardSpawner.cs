@@ -8,6 +8,9 @@ public class CardSpawner : MonoBehaviour
     [SerializeField]
     private GameObject cardPrefab;
 
+    [SerializeField]
+    private PlayerPrefs playerPrefs;
+
     private CardType[] cardTypes = new CardType[]
     {
         CardType.CHERRY, CardType.PEAR, CardType.QIWI,
@@ -16,11 +19,11 @@ public class CardSpawner : MonoBehaviour
         CardType.WATERMELLON
     };
 
-    [SerializeField]
-    private int pairsCount = 2;
+    private int pairsCount;
 
     private void Start()
     {
+        pairsCount = playerPrefs.LoadLevelComplexity() * 2;
         SprideCards(GenerateCardsList());
         gameObject.GetComponent<MechanicGame>().pairsCount = pairsCount;
     }
@@ -56,8 +59,8 @@ public class CardSpawner : MonoBehaviour
 
     private float CalculateCardScale(int pairsAmount)
     {
-        if (pairsAmount < 5) return 2f;
-        else if (pairsAmount == 5 || pairsAmount == 6) return 1.5f;
+        if (pairsAmount < 4) return 2f;
+        else if (pairsAmount >= 4 && pairsAmount <= 6 ) return 1.5f;
         else return 1.2f;
     }
 

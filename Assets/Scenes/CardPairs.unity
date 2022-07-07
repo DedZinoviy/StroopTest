@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 107.6
+  m_fontSize: 120
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -459,6 +459,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 519420032}
     m_Modifications:
     - target: {fileID: 8533818253421151430, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
@@ -510,12 +511,24 @@ PrefabInstance:
       value: SceneChanger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
 --- !u!4 &1335612760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8533818253421151430, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
   m_PrefabInstance: {fileID: 1335612759}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1335612761 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1514330909708482588, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
+  m_PrefabInstance: {fileID: 1335612759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fdfec6e05ce7b549866104c8d9ca86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1470309872 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8533818253421151433, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
@@ -694,6 +707,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -710,7 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 5635937898508032752, guid: 1879d2e90e2110247bd025ab482474ec, type: 3}
-  pairsCount: 5
+  playerPrefs: {fileID: 1335612761}
 --- !u!114 &1662983695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,8 +738,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changer: {fileID: 1470309872}
+  playerPrefs: {fileID: 1335612761}
   TimeBar: {fileID: 1764851011}
-  Seconds: 30
 --- !u!1 &1764851009
 GameObject:
   m_ObjectHideFlags: 0

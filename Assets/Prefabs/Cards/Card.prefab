@@ -430,7 +430,7 @@ MonoBehaviour:
   - {fileID: 6609241150452850056}
   - {fileID: 8806592952643882508}
   mBack: {fileID: 5635937898724585261}
-  mTime: 0.3
+  mTime: 0.15
 --- !u!1 &5635937898724585261
 GameObject:
   m_ObjectHideFlags: 0
