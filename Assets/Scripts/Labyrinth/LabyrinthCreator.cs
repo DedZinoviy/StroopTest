@@ -5,10 +5,11 @@ using UnityEngine;
 public class LabyrinthCreator : MonoBehaviour
 {
     [SerializeField] private GameObject Cell; //Ячейка лабиринта
-    [SerializeField] private int Width = 5; //Ширина лабиринта
-    [SerializeField] private int Height = 5; //Высота лабиринта
+    private int Width; //Ширина лабиринта
+    private int Height; //Высота лабиринта
     [SerializeField] private Camera Camera;
-    [SerializeField] private int CountTraps = 3;
+    private int CountTraps; //Количество ловушек
+    [SerializeField] private PlayerPrefs playerPrefs;
     private float sizeX; //Размер ячейки по X
     private float sizeY; //Размер ячейки по Y
 
@@ -17,6 +18,7 @@ public class LabyrinthCreator : MonoBehaviour
     {
         sizeX = Cell.GetComponent<Transform>().localScale.x;
         sizeY = Cell.GetComponent<Transform>().localScale.y;
+        SetСomplexityParams();
         CreateLabyrinth(); //Создать лабиринт
     }
 
@@ -55,5 +57,20 @@ public class LabyrinthCreator : MonoBehaviour
         float up = Height * sizeY;
         float bottom = 0;
         Camera.GetComponent<CameraController>().SetCameraBounds(left, right, up, bottom);
+    }
+
+    private void SetСomplexityParams()
+    {
+        int levelComplexity = playerPrefs.LoadLevelComplexity(); //уровень сложности
+        Vector3Int[] param = new Vector3Int[5]; //Параметры соответствующие уровню сложности
+        param[0] = new Vector3Int(5, 5, 3);
+        param[1] = new Vector3Int(8, 8, 7);
+        param[2] = new Vector3Int(10, 10, 9);
+        param[3] = new Vector3Int(12, 12, 11);
+        param[4] = new Vector3Int(15, 15, 14);
+
+        Width = param[levelComplexity - 1].x; //Ширина
+        Height = param[levelComplexity - 1].y; //Высота
+        CountTraps = param[levelComplexity - 1].z; //Количество ловущек
     }
 }

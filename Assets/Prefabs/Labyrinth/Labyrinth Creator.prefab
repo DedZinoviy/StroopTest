@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cell: {fileID: 1919974679109210757, guid: 6722ee18235738b47a7cccf791e173d8, type: 3}
-  Width: 5
-  Height: 5
   Camera: {fileID: 0}
+  playerPrefs: {fileID: 1514330909708482588, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
