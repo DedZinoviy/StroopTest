@@ -10,12 +10,15 @@ public class FruitsSpawner : MonoBehaviour
     private GameController controller;
 
     [SerializeField]
+    private PlayerPrefs playerPrefs;
+
+    [SerializeField]
     private GameObject[] circles;
 
     private int[] circleIndexes = new int[5];
     private int currentIndex = 5;
 
-    private float time = 0.5f;
+    private float time;
 
     private float[] xPosotions = { -3.5f, 3.5f };
     private int[] yPositionRange = { -1, 2 };
@@ -25,8 +28,17 @@ public class FruitsSpawner : MonoBehaviour
 
     void Start()
     {
+        time = CalculateSpawnTime();
+        Debug.Log(time);
         random = new System.Random(DateTime.Now.Millisecond);
         InvokeRepeating(nameof(SpawnFruit), time, time);
+    }
+
+    private float CalculateSpawnTime()
+    {
+        int complexityLvl = playerPrefs.LoadLevelComplexity();
+        float spawnTime = 1f - complexityLvl / 10f;
+        return spawnTime;
     }
 
     private void SpawnFruit()

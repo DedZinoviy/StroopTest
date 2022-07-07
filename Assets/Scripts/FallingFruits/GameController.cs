@@ -15,8 +15,6 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private MissZone missZone;
 
-    public int complexityLevel;
-
     private Color[] colors = 
     { 
         Color.red, 

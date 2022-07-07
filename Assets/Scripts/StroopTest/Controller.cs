@@ -85,17 +85,26 @@ public class Controller : MonoBehaviour
         if (EtalonColor.currentColor == button.Color) // Если цвет кнопки совпадает с цветом на дисплее...
         {
             Score++; // Увеличить счёт.
-            Win(); // Проеврить выигрышную ситуацию.
         }
         else // Иначе...
         {
             Seconds -= 0.5; // Вычесть время в качестве штрафа.
         }
-        ScoreEdit.text = "Счёт: " + Score + "/" + QuestionCount; // Отобразить счёт на экране.
-        text.SetText(); // Перемешать кнопки.
-        this.SetOriginalQuestionTime(); // Вернуть время на вопрос к исходному значению.
-        TimeBar.ReturnToOriginScale(); // Востановить шкалу в размере.
-        TimeBar.ChangeBarColor(1); // Вернуть шкале исходный цвет.
+
+        if (this.Score >= QuestionCount) // Перейти к другой головоломке, если счёт совпадает с требуемым.
+        {
+            Win();
+        }
+        else
+        {
+            ScoreEdit.text = "Счёт: " + Score + "/" + QuestionCount; // Отобразить счёт на экране.
+            text.SetText(); // Перемешать кнопки.
+            this.SetOriginalQuestionTime(); // Вернуть время на вопрос к исходному значению.
+            TimeBar.ReturnToOriginScale(); // Востановить шкалу в размере.
+            TimeBar.ChangeBarColor(1); // Вернуть шкале исходный цвет.
+            EtalonColor.ChangeText();
+            EtalonColor.ChangeTextColor();
+        }
     }
 
     /// <summary>
@@ -103,10 +112,7 @@ public class Controller : MonoBehaviour
     /// </summary>
     private void Win()
     {
-        if (this.Score >= QuestionCount) // Перейти к другой головоломке, если счёт совпадает с требуемым.
-        {
-            Change.NextScene();
-        }
+        Change.NextScene(); // Перейти к другой головоломке, если счёт совпадает с требуемым.
     }
 
     /// <summary>

@@ -37,6 +37,7 @@ public class SceneChanger : MonoBehaviour
         scenesSequence = playerPrefs.GetScenes();
         random = new System.Random(DateTime.Now.Millisecond);
         levelComplexity = playerPrefs.LoadLevelComplexity();
+        Debug.Log(levelComplexity);
     }
 
     /// <summary>
@@ -47,7 +48,10 @@ public class SceneChanger : MonoBehaviour
         if (scenesSequence.Count <= 0) // —генерировать массив сцен, если он пустой.
         {
             GenerateScenesSequence();
-            levelComplexity++;
+            
+            if (levelComplexity < 5)
+                levelComplexity++;
+            
             playerPrefs.SaveLevelComlexity(levelComplexity);
         }
 
@@ -94,6 +98,7 @@ public class SceneChanger : MonoBehaviour
     private void OnApplicationQuit()
     {
         playerPrefs.ClearScenes();
+        playerPrefs.ClearLevelComplexity();
     }
 
     /// <summary>

@@ -12,12 +12,17 @@ public class ScoreCounter : MonoBehaviour
     private GameController controller;
 
     [SerializeField]
+    private PlayerPrefs playerPrefs;
+
+    [SerializeField]
     private Image fill;
 
     [SerializeField]
     private TMP_Text colorText;
 
     private int[] FruitCounts;
+
+    private int complexityLevel;
 
     private int desiredFruitCount;
     private int currentFruitCount;
@@ -26,6 +31,8 @@ public class ScoreCounter : MonoBehaviour
 
     private void Start()
     {
+        complexityLevel = playerPrefs.LoadLevelComplexity();
+
         FruitCounts = GenerateFruitCounts();
 
         currentCountIndex = 0;
@@ -81,7 +88,7 @@ public class ScoreCounter : MonoBehaviour
         System.Random random = new(DateTime.Now.Millisecond);
         int defaultCount = 2;
         
-        int[] fruitsCount = new int[2 * controller.complexityLevel + 1];
+        int[] fruitsCount = new int[2 * (complexityLevel - 1) + 1];
         Array.Fill(fruitsCount, defaultCount);
         int shuffleAmount = fruitsCount.Length / 2 * 2; 
 
