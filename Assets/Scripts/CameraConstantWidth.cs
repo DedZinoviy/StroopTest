@@ -18,6 +18,7 @@ public class CameraConstantWidth : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 300;
         componentCamera = GetComponent<Camera>();
         initialSize = componentCamera.orthographicSize;
 
