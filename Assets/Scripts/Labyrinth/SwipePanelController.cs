@@ -21,6 +21,7 @@ public class SwipePanelController : MonoBehaviour, IBeginDragHandler, IDragHandl
 
     private void Start()
     {
+        gameObject.SetActive(false);
         timeBar = transform.Find("Panel").Find("TimeBar").gameObject.GetComponent<Image>(); //ѕолучить изображение временной шкалы
     }
 
