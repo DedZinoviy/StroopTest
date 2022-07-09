@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private MissZone missZone;
 
+    [SerializeField]
+    private FailPanel failPanel;
+
     private Color[] colors = 
     { 
         Color.red, 
@@ -64,5 +67,5 @@ public class GameController : MonoBehaviour
 
     public void Win() => changer.NextScene();
 
-    public void Lose() => changer.ToMenu();
+    public void Lose() => failPanel.Open();
 }

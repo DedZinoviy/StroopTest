@@ -9,6 +9,7 @@ public class HealthPoint : MonoBehaviour
     [SerializeField] private int MaxHealthCount = 3; //максимальное количество здоровь€ на уровне
     [SerializeField] private SceneChanger SceneChanger;
     [SerializeField] private Animation PlayerAnimation;
+    [SerializeField] private FailPanel failPanel;
     private int healthCount; //текущее количество здоровь€
 
     private void Start()
@@ -34,6 +35,6 @@ public class HealthPoint : MonoBehaviour
     private void IsFailLevel()
     {
         if (healthCount == 0)
-            SceneChanger.ToMenu(); //¬ыйти в меню
+            failPanel.Open(); //¬ыйти в меню
     }
 }

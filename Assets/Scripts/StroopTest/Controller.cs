@@ -19,6 +19,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private SceneChanger Change;
     [SerializeField] private float safeTime;
     [SerializeField] private PlayerPrefs save;
+    [SerializeField] private FailPanel failPanel;
     private int QuestionCount;
     private double QuestionTime;
     private double Seconds;
@@ -60,7 +61,7 @@ public class Controller : MonoBehaviour
             }
             else // Иначе...
             {
-                Change.ToMenu(); // Выйти в меню.
+                failPanel.Open(); // Выйти в меню.
             }
         }
         else // Иначе...

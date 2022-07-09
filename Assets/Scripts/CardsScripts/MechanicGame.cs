@@ -12,6 +12,9 @@ public class MechanicGame : MonoBehaviour
     [SerializeField]
     private PlayerPrefs playerPrefs;
 
+    [SerializeField]
+    private FailPanel failPanel;
+
     [SerializeField] private Bar TimeBar;
     private double Seconds;
     private double OriginalSeconds;
@@ -48,7 +51,7 @@ public class MechanicGame : MonoBehaviour
             }
             else
             {
-                changer.ToMenu();
+                failPanel.Open();
             }
         }
         else

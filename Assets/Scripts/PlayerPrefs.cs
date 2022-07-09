@@ -87,9 +87,16 @@ public class PlayerPrefs : MonoBehaviour
     /// <summary>
     /// Clears all info in log.
     /// </summary>
-    public void Clear()
+    public void ClearAll()
     {
         UnityEngine.PlayerPrefs.DeleteAll(); // Стереть всю информацию в логе.
+    }
+
+    public void Clear()
+    {
+        ClearScenes();
+        ClearLevelComplexity();
+        ClearCurrentScore();
     }
 
     /// <summary>

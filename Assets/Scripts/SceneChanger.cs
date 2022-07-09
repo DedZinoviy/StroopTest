@@ -36,6 +36,10 @@ public class SceneChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //UnityEngine.PlayerPrefs.DeleteAll();
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+            playerPrefs.Clear();
+
         scenesSequence = playerPrefs.GetScenes();
         random = new System.Random(DateTime.Now.Millisecond);
         levelComplexity = playerPrefs.LoadLevelComplexity();
@@ -69,15 +73,20 @@ public class SceneChanger : MonoBehaviour
         ChangeScene(nextScene); // Сменить сцену.
     }
 
+    public void Retry()
+    {
+        scenesSequence = new List<string>();
+        levelComplexity = 0;
+        currentScore = -1;
+        NextScene();
+    }
+
     /// <summary>
     /// Loads main menu scene.
     /// </summary>
     public void ToMenu()
     {
-        playerPrefs.ClearScenes(); // Очистить список сцен.
-        playerPrefs.ClearLevelComplexity(); //Сбросить уровень сложности.
         playerPrefs.SaveScore(currentScore);
-        playerPrefs.ClearCurrentScore();
         ChangeScene("MainMenu"); // Открыть сцену меню.
     }
 
@@ -101,10 +110,7 @@ public class SceneChanger : MonoBehaviour
     // OnApplicationQuit is called when the application quits.
     private void OnApplicationQuit()
     {
-        playerPrefs.ClearScenes();
-        playerPrefs.ClearLevelComplexity();
         playerPrefs.SaveScore(currentScore);
-        playerPrefs.ClearCurrentScore();
     }
 
     /// <summary>
