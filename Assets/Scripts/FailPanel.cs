@@ -52,7 +52,7 @@ public class FailPanel : MonoBehaviour
         if (currentScore > currentRecord)
             recordText.text = "Новый рекорд: " + currentScore.ToString();
         else
-            recordText.text = "Текущий рекорд " + currentRecord.ToString();
+            recordText.text = "Текущий рекорд: " + currentRecord.ToString();
 
         playerPrefs.SaveScore(currentScore);
         StartCoroutine(SetButtonEnable());
