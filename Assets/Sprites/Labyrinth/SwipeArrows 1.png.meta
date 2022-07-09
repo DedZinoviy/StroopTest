@@ -131,19 +131,19 @@ TextureImporter:
       name: UpArrow
       rect:
         serializedVersion: 2
-        x: 57
-        y: 263
-        width: 189
+        x: 200
+        y: 772
+        width: 430
         height: 417
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09def7059d07f12448a0c64a571c4104
-      internalID: -830209336
+      spriteID: 5941ffa64538a154b8c29721d1a16885
+      internalID: -224300257
       vertices: []
       indices: 
       edges: []
@@ -152,40 +152,19 @@ TextureImporter:
       name: DownArrow
       rect:
         serializedVersion: 2
-        x: 481
-        y: 319
-        width: 191
-        height: 359
+        x: 897
+        y: 737
+        width: 430
+        height: 417
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf1c94c791e9d024fbd8e13a9084398f
-      internalID: 64020255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RightArrow
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 0
-        width: 358
-        height: 190
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5cb3024b98b668540ace0f0a3f67a5c1
-      internalID: 398075867
+      spriteID: abc126c0ce4591e4280bcf4154c9c807
+      internalID: -402941455
       vertices: []
       indices: 
       edges: []
@@ -194,19 +173,40 @@ TextureImporter:
       name: LeftArrow
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 417
-        height: 194
+        x: 111
+        y: 205
+        width: 430
+        height: 417
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f62c4a41e226b44f934fad5420dd75d
-      internalID: 1851864841
+      spriteID: b492ab024b5f8c04b80e7d6916e094fd
+      internalID: -313157051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightArrow
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 218
+        width: 430
+        height: 417
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2243b5854454c4c9c15b2a446c73f1
+      internalID: -970953830
       vertices: []
       indices: 
       edges: []
@@ -222,13 +222,29 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SwipeArrows 1_4: 1475970810
-      DownArrow: 64020255
-      SwipeArrows 1_6: 1767578692
-      UpArrow: -830209336
-      RightArrow: 398075867
-      SwipeArrows 1_0: 641713569
-      LeftArrow: 1851864841
+      SwipeArrows 1_16: 1190083033
+      SwipeArrows 1_14: -749119940
+      SwipeArrows 1_4: -648269205
+      SwipeArrows 1_17: 1238977455
+      SwipeArrows 1_18: 2008215379
+      SwipeArrows 1_19: -1773816684
+      SwipeArrows 1_15: 1891051474
+      SwipeArrows 1_20: 982391219
+      DownArrow: -402941455
+      SwipeArrows 1_13: -1285575330
+      SwipeArrows 1_12: 1043082288
+      SwipeArrows 1_22: 169615938
+      SwipeArrows 1_21: 756706077
+      UpArrow: -224300257
+      RightArrow: -970953830
+      SwipeArrows 1_8: 280070800
+      SwipeArrows 1_0: 814067805
+      SwipeArrows 1_7: -1877248525
+      SwipeArrows 1_9: 1165635096
+      SwipeArrows 1_10: -1393627067
+      SwipeArrows 1_2: -1724233690
+      LeftArrow: -313157051
+      SwipeArrows 1_11: 906891174
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

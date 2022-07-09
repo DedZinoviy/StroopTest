@@ -457,7 +457,7 @@ RectTransform:
   m_Children:
   - {fileID: 1124430951}
   m_Father: {fileID: 1625464184}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.30200002}
@@ -682,7 +682,7 @@ RectTransform:
   - {fileID: 332229287}
   - {fileID: 2034749405}
   m_Father: {fileID: 1625464184}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.30200002}
   m_AnchorMax: {x: 1, y: 1}
@@ -710,7 +710,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2462535070304381014, guid: ac677b1bc1cd67043b67419a5e7f9e29, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2462535070304381014, guid: ac677b1bc1cd67043b67419a5e7f9e29, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1400,9 +1400,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1517138440}
-  - {fileID: 627561532}
   - {fileID: 267017099}
   - {fileID: 467609096}
+  - {fileID: 627561532}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
