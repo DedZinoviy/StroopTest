@@ -36,7 +36,6 @@ public class SceneChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //UnityEngine.PlayerPrefs.DeleteAll();
         if (SceneManager.GetActiveScene().name == "MainMenu")
             playerPrefs.Clear();
 
@@ -86,7 +85,7 @@ public class SceneChanger : MonoBehaviour
     /// </summary>
     public void ToMenu()
     {
-        playerPrefs.SaveScore(currentScore);
+        playerPrefs.SaveScore(playerPrefs.LoadCurrentScore());
         ChangeScene("MainMenu"); // Открыть сцену меню.
     }
 
