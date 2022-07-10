@@ -29,7 +29,6 @@ public class FruitsSpawner : MonoBehaviour
     void Start()
     {
         time = CalculateSpawnTime();
-        Debug.Log(time);
         random = new System.Random(DateTime.Now.Millisecond);
         InvokeRepeating(nameof(SpawnFruit), time, time);
     }

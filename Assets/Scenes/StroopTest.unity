@@ -222,6 +222,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1140,6 +1141,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 136346617}
     m_Modifications:
     - target: {fileID: 8533818253421151430, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
@@ -1191,6 +1193,7 @@ PrefabInstance:
       value: SceneChanger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ff09913c688cdd34e934d10af3a0600f, type: 3}
 --- !u!114 &973296832 stripped
 MonoBehaviour:
@@ -1208,6 +1211,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 717108628}
     m_Modifications:
     - target: {fileID: 2462535070304381013, guid: ac677b1bc1cd67043b67419a5e7f9e29, type: 3}
@@ -1299,6 +1303,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ac677b1bc1cd67043b67419a5e7f9e29, type: 3}
 --- !u!1 &1013940621
 GameObject:
@@ -2372,6 +2377,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 132230053971630584, guid: 57ddc4ad0e4dc964d80cfb757927e11a, type: 3}
@@ -2503,12 +2509,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3999955553484795166, guid: 57ddc4ad0e4dc964d80cfb757927e11a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999955553484795166, guid: 57ddc4ad0e4dc964d80cfb757927e11a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3999955553484795166, guid: 57ddc4ad0e4dc964d80cfb757927e11a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000061035156
+      value: -0.000002861
       objectReference: {fileID: 0}
     - target: {fileID: 3999955553484795166, guid: 57ddc4ad0e4dc964d80cfb757927e11a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: -0.00024414062
       objectReference: {fileID: 0}
     - target: {fileID: 4367492416881787926, guid: 57ddc4ad0e4dc964d80cfb757927e11a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2539,6 +2553,7 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 57ddc4ad0e4dc964d80cfb757927e11a, type: 3}
 --- !u!114 &1828919444 stripped
 MonoBehaviour:
